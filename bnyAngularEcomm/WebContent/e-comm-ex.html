@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head >
+        <meta charset="ISO-8859-1">
+        <title>Ecomm exercise 6</title>
+        <script	src="js/angular.min.js"></script>
+
+        <style>
+            main {
+                width: 80%;
+                background-color: rgb(229, 225, 215);
+                padding-bottom: 90px;
+                margin: auto;
+            }
+            caption {
+                font-size: 36px;
+                padding: 30px;
+            }
+            table {
+                margin: auto;
+                border-collapse: collapse;
+ 
+            }
+            th, tr, td {
+
+                text-align: center;
+                font-size: 24px;
+            }
+            td, th {
+                padding: 15px;
+                border: 2px solid rgb(8, 62, 147);
+
+            }
+ 
+            img {
+                height: 100px;
+            }
+        </style>
+    </head>
+
+    <body ng-app="bookQty" ng-controller="qtyCtrl" >
+
+ 
+        <main>
+
+            <table>
+                <caption>Books for Sale!</caption>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Image</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                </tr>
+                <tr ng-repeat="book in bookArr">
+                    <td>{{book.title | uppercase}}</td>
+                    <td>{{book.author}}</td>
+                    <td><img ng-src="./images/{{book.image}}"></td>
+                    <td>{{book.price | currency}}</td>
+                    <td>{{count}}<div>
+                        <button ng-click="count=count+1">+</button>
+                        <button ng-click="count=count-1" ng-disabled="count==0">-</button>
+                    </div></td>
+  
+                </tr>
+            </table>
+        </main>
+        <script>
+
+        var app = angular.module ('bookQty', []);
+
+        app.controller ('qtyCtrl', function($scope) {
+            $scope.bookArr = [{title: 'Crash', author: 'Tim Hallinan', image: 'crashed.jpg', price: 10.95}, 
+        {title: 'Little Elvises', author: 'Tim Hallinan', image: 'little-elvis.jpg', price: 11.95}, 
+        {title: 'Fields Where They Lay', author: 'Tim Hallinan', image: 'fields.jpg', price: 9.99}, 
+        {title: 'Herbie\'s Game', author: 'Tim Hallinan', image: 'herbies-game.jpg', price: 9.99}];
+            $scope.count = 0;
+            $scope.subtractQty= function() {
+                if (count == 0) {
+                    continue;
+                }else count=count-1;
+            }
+        });
+        </script>
+
+    </body>
+</html>
+
