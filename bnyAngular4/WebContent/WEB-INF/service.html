@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>service</title>
+<script src="js/angular.min.js"></script>
+</head>
+<body ng-app="ngApp" ng-controller="ctrl">
+    <p>{{greetings}}</p>
+
+
+    <script>
+    var ngApp = angular.module("ngApp", []);
+		
+    ngApp.service("greetF", function(){
+	    this.sayHello = function(name){
+		return "Hello, "+name;
+		}
+    });
+	
+    ngApp.controller('ctrl', function($scope, greetF) {
+        $scope.greetings = greetF.sayHello("Young");
+    });
+
+    </script>
+
+</body>
+</html>

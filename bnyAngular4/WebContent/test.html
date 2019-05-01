@@ -1,0 +1,17 @@
+<html ng-app="myTestApp">
+    <head>
+    </head>
+    <script src="js/angular.min.js"></script>
+    <body>
+        <div ng-view ng-controller="myTestController">{{fullName}}</div>
+        <script>
+         var application = angular.module('myTestApp', []);
+    application.controller('myTestController', function($scope) {
+        $scope.firstName = "Michael";
+        $scope.lastName = "Stephany";
+        $scope.fullName = function() {
+            return $scope.firstName + " " + $scope.lastName;
+        };
+    });</script>
+    </body>
+    </html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script src="js/angular.min.js"></script>
+</head>
+<body>
+    <div ng-app="ngApp" ng-controller="ctrl">
+        <p >{{greetings}}</p>
+    </div>
+
+    <script>
+       var ngApp = angular.module("ngApp", []);
+		
+        ngApp.factory("greetF", function(){
+            var obj={};
+	        obj.sayHello = function(name){
+		    return "Hello, "+name;
+		}
+	        return obj;
+        });
+	
+        ngApp.controller('ctrl', function($scope, greetF) {
+        $scope.greetings = greetF.sayHello("Young");
+    });
+
+    </script>
+
+</body>
+</html>
