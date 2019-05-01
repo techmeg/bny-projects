@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>attach object</title>
+<script src="js/angular.min.js"></script>
+</head>
+<body >
+    <div ng-app="myNgApp" ng-controller="parentController">
+        Message: {{message}}
+        <div ng-controller="childController">
+            Parent Message: {{message}}<br>
+            Child Message: {{message}}
+
+        </div>
+        Child Message: {{message}}
+    </div>
+    {{message}}
+ 
+    <script>
+    var ngApp = angular.module('myNgApp', []);
+    
+    ngApp.controller('parentController', function ($scope){
+        $scope.message = "This is parent Controller";
+    });
+    ngApp.controller('childController', function ($scope){
+        $scope.message = "This is child Controller";
+    });
+    </script>
+
+
+</body>
+</html>

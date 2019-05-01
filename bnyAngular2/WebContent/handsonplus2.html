@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Young challenge with controller</title>
+<script src="js/angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+   <div ng-controller="myController">
+        <h1 ng-mousemove="add()" >Increase by: {{step}}</h1>
+        <input type="number" ng-model="step" >
+        {{count}}
+        <span ng-if="count<0" style="color: red;">The number is negative</span>
+        <span ng-show="count>=0" style="color:blue;">The number is positive</span>
+    </div>
+
+
+    <script>
+    var myApp = angular.module('myApp', []);
+
+    myApp.controller('myController', function($scope) {
+        $scope.count = 0;
+        $scope.step = 1;
+        $scope.add = function () {
+        $scope.count=$scope.count+$scope.step;
+        }
+    });
+    
+    </script>
+
+</body>
+</html>

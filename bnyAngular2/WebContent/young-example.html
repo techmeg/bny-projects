@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <title>AngualrJS Controller</title>
+    <script src="js/angular.min.js"></script>
+</head>
+<body ng-app="eventExample">
+ <div ng-controller="EventController">
+   Root scope MyEvent count: {{count}}
+
+   <ul>
+     <li ng-controller="EventController">
+          <button ng-click="$emit('MyEvent')">$emit('MyEvent')</button>
+          <button ng-click="$broadcast('MyEvent')">$broadcast('MyEvent')</button>
+       <br>
+       Middle scope MyEvent count: {{count}}
+       <ul>
+         <li ng-controller="EventController">
+           Leaf scope MyEvent count: {{count}}
+         </li>
+       </ul>
+     </li>
+   </ul>
+ </div>
+    <script>
+     angular.module('eventExample', [])
+     .controller('EventController', ['$scope', function($scope) {
+       $scope.count = 0;
+       $scope.$on('MyEvent', function() {
+         $scope.count++;
+       });
+     }]);
+    </script>
+</body>
+</html>

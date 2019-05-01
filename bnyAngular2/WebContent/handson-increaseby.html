@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Young challenge, page 45</title>
+<script src="js/angular.min.js"></script>
+</head>
+<body ng-app ng-init="count=0; step=10">
+    <div>
+        <h1 ng-mousemove="count=count+step">Increase By: {{step}}</h1>
+        <input type="number" ng-model="step">
+        <h2>{{count}}</h2>
+        <span ng-if="count<0" style="color: red;">The number is negative</span>
+        <span ng-show="count>=0">The number is positive</span>
+    </div>
+</body>
+</html>

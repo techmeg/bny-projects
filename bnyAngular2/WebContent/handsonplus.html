@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Hands on mousemove, page 45</title>
+<script src="js/angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+   <div ng-controller="myController">
+        <h1 ng-mousemove="subtract()">Mouse over Me?</h1>
+        <h2>Decrease: {{count}}</h2>
+    </div>
+
+    <div ng-init="count=0">
+        <h1 ng-mousemove="count=count+1">Mouse over Me!</h1>
+        <h2>Increase: {{count}}</h2>
+    </div>
+    <script>
+    var myApp = angular.module('myApp', []);
+
+    myApp.controller('myController', function($scope) {
+        $scope.count = 0;
+        $scope.subtract = function () {
+        $scope.count--;
+        }
+    });
+    
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>show/hide</title>
+<script src="js/angular.min.js"></script>
+</head>
+<body ng-app ng-init="v=0">
+    <button ng-click="v=!v" >Click me!</button><!-- or (v=v+1)%2?? -->
+    <div ng-show="v">
+        <h1>Menu</h1>
+        <div>Ford</div>
+        <div>Toyota</div>
+        <div>Nissan</div>
+    </div>
+    <p>Click the button to show/hide the menu.</p>
+
+</body>
+</html>

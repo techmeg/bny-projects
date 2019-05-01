@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>sort by filter criteria</title>
+<script src="js/angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+    <div ng-controller="myController">
+        <select ng-model="SortOrder">
+            <option value = "+name">Name (asc)</option>
+            <option value = "-name">Name (desc)</option>
+            <option value = "+age">Age (asc)</option>
+            <option value = "-age">Age (desc)</option>
+        </select>
+        <ul >
+            <li ng-repeat = "person in persons | orderBy:SortOrder">
+                {{person.name}} - {{person.age}}</li>
+        </ul>
+    </div>
+
+    <script>
+    var myApp=angular.module('myApp', []);
+    myApp.controller ('myController', function($scope){
+        $scope.persons = [{name: 'John', age: '20'},
+                            {name: 'Mary', age: '25'},
+                        {name: 'Mike', age: '30'},
+                    {name: 'Anna', age: '50'},
+                {name: 'Steve', age: '35'}]
+
+                $scope.SortOrder = '+name';
+    });
+    </script>
+
+</body>
+</html>

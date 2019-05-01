@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>hands on 54</title>
+<script src="js/angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+    <div ng-controller="myController">
+        <table>
+            <tr>
+                <td>Enter First Name</td>
+                <td><input type="text" ng-model="firstName"></td>
+            </tr>
+                        <tr>
+                <td>Enter Last Name</td>
+                <td><input type="text" name="lastName" ng-model="lastName"></td>
+            </tr>
+            <tr>
+                <td>Enter Fees</td>
+                <td><input type="number" name="fees" ng-model="fees"></td>
+            </tr>
+            <tr>
+                <td>Enter Subject</td>
+                <td><input type="text" name="subject" ng-model="subject"></td>
+            </tr>
+
+        </table>
+ 
+        <table>
+            <tr>
+                <td>Name in Upper Case: </td>
+                <td><span ng-bind="firstName  +  ' ' + lastName | uppercase"></span></td>
+            </tr>
+            <tr>
+                <td>Name in Lower Case: </td>
+                <td>{{firstName  +  " " + lastName | lowercase}}</td>
+            </tr>
+            <tr>
+                <td>fees: </td>
+                <td><span ng-bind="fees | currency"></span></td>
+            </tr>
+        </table>
+        <table>
+        <tr>
+            <td>Subject:  </td>
+            <td>
+                <ul>
+                    <li ng-repeat = "s in (subjects | filter:{name:subject} | orderBy:sortOrder)">
+                        {{s.name + 'marks: '}}
+                    </li>
+                </ul>
+            </td>
+        </tr>
+        
+        </table>
+    </div>
+
+
+    <script>
+        var app = angular.module("myApp", []);
+
+        app.controller ("myController", function($scope) {
+            $scope.subjects = [{name: "Math", marks: "65"}, 
+                {name: "Physics", marks: "70"},
+                {name: "Chemistry", marks: "80"} ]
+                $scope.sortOrder = '+marks';
+        });
+    
+    </script>
+
+</body>
+</html>

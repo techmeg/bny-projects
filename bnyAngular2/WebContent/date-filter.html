@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="ISO-8859-1">
+    <title>Date filter</title>
+    <script src="js/angular.min.js"></script>
+    </head>
+<body>
+    <div ng-app="myApp" ng-controller="dateCtrl">
+        <p>Date = {{ today | date }}</p>
+        <p>Date = {{ today | date : "dd.MM.y"}}</p>
+        <p>Date = {{ today | date : "fullDate"}}</p>
+        <p>Date = {{ today | date : "'today is' MMMM d, y"}}</p>
+        <p>Date = {{ "2016-01-05T09:05:05.0352Z" | date }}</p>
+    </div>
+
+    <script>
+    var app=angular.module('myApp', []);
+    app.controller ("dateCtrl", function($scope){
+        $scope.today = new Date();
+    });
+    </script>
+    <p>The date filter formats a date object to a readable format.</p>
+
+</body>
+</html>

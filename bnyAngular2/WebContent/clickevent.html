@@ -1,0 +1,27 @@
+ <!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="ISO-8859-1">
+        <title>click event</title>
+        <script src="js/angular.min.js"></script>
+    </head>
+
+<body ng-app="myApp">
+    <div ng-controller="myController">
+        Enter Password: <input type="password" ng-model= "password"><br>
+
+        <button ng-click = "DisplayMessage(password)">Show Password</button>
+    </div>
+
+    <script>
+    var myApp = angular.module('myApp', []);
+    
+    myApp.controller("myController", function ($scope, $window) {
+        
+        $scope.password = "enter a password"
+        $scope.DisplayMessage = function (value) {
+                $window.alert(value)
+            }
+    });
+    </script>
+</body>

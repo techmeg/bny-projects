@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>custom filter</title>
+<script src="js/angular.min.js"></script>
+</head>
+<body>
+    <div ng-app = "myApp" ng-controller = "filterController">
+        <input type="number" name="number" ng-model="number">
+        <p >The ordinal number of {{number}} is {{number | ordinalFilter}}</p>
+
+    </div>
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller ('filterController', function($scope){
+            $scope.number = 1;
+        });
+ 
+
+       app.filter('ordinalFilter', function(){
+        return function(number){
+            if(isNaN(number) || number < 1){
+                return "Invalid Input";
+            } else {
+
+                if((number % 10 === 1) && (number % 100 != 11)){
+                return number + 'st';
+                } else if((number % 10 === 2) && (number % 100 != 12)){
+                return number + 'nd'
+                } else if((number % 10 === 3) && (number % 100 != 13)){
+                return number + 'rd'
+                } else if (number % 10 > 3){
+                return number + 'th'
+                } else {
+                    return number + 'th'
+                }
+ 
+            }
+        }
+    });
+
+ 
+    </script>
+
+</body>
+</html>

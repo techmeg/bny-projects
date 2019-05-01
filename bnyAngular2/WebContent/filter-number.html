@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>number filter</title>
+<script src="js/angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+    <div  ng-controller="nCtrl">
+        <h1> {{weight | number : 4}}</h1>
+
+        <h2> {{prize | number }}</h2>
+    </div>
+
+    <script>
+    var app = angular.module('myApp', []);
+    app.controller('nCtrl', function($scope) {
+        $scope.weight = 1000;
+        $scope.prize = 1000000;
+    });
+
+    </script>
+</body>
+</html>

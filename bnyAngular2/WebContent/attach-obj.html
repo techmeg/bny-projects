@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>attach object</title>
+<script src="js/angular.min.js"></script>
+</head>
+<body ng-app="myNgApp">
+    <h2>Student Information: </h2>
+    <div  ng-controller="myController">
+        <div ng-repeat = "s in students">
+        First Name: {{s.firstName}} <br>
+        Last Name: {{s.lastName}}<br>
+        <hr></div>
+
+    </div>
+    <script>
+    var ngApp = angular.module('myNgApp', []);
+    
+    ngApp.controller('myController', function ($scope){
+        $scope.students = [{ firstName: 'Albert', lastName: 'Einstein' }, {firstName: 'Meg', lastName: 'Parsons'}];
+    });
+    </script>
+
+
+</body>
+</html>

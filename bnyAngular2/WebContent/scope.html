@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>$scope object</title>
+<script src="js/angular.min.js"></script>
+</head>
+<body ng-app = "myApp">
+    <div ng-controller="parentController" ng-mouseover="$new.myEvent">
+        Controller Name: {{controllerName}}<br>
+        Message: {{message}}<br>
+        <div style = "margin: 10px 0 10px 20px;" ng-controller="childController">
+            Controller Name: {{controllerName}}<br>
+            Message: {{message}}<br>
+        </div>
+    </div>
+
+    <div ng-controller="siblingController">
+        Controller Name: {{controllerName}}<br>
+        Message: {{message}}<br>
+    </div>
+    <script>
+        var ngApp = angular.module('myApp', []);
+
+        ngApp.controller('parentController', function($scope, $rootScope){
+            $scope.controllerName = "parent Controller";
+            $scope.myEvent = "This is new";
+        //    $rootScope.message = "Hello developers";
+
+        });
+        ngApp.controller('childController', function($scope){
+            $scope.controllerName = "child Controller";
+        });
+        ngApp.controller('siblingController', function($scope, $rootScope){
+            $rootScope.message = "Hello developers";
+        }); 
+    </script>
+
+</body>
+</html>
