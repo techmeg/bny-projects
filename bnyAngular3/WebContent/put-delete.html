@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <title>AngularJs $http.put() delete() Service Response Example</title>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+        <script src="js/script.js"></script>
+    </head>
+    <body ng-app="myApp" ng-controller="studentController" ng-cloak>
+    <!--Form-->
+        <form name="userForm" ng-submit="createUser()">
+            <h4>Create User</h4>
+            <div>
+                <label>Name:</label>
+                <div>
+                    <input type="text" ng-model="user.name" placeholder="Maria.."  required />
+                </div>
+                </div>
+            <div>
+                <label>Email:</label>
+                <div>
+                    <input type="email" ng-model="user.email"  placeholder="maria@perschols.org" required />
+                </div>
+                </div>
+            <div>
+                <input type="submit" value="submit" ng-show="submit" ng-disabled="userForm.$invalid" />
+                <input type="button" value="update" ng-click="updateUser()" ng-show="update"/>
+                <input type="button" value="cancel" ng-click="cancelUpdate()" ng-show="cancel"/>
+            </div>
+        </form>
+    <!--End Form-->
+    <!--Users List-->
+        <br />
+        <h4>User List</h4>
+        <table>
+            <thead ng-show="{{ng.user.Form.$dirty">
+            <tr>
+                <td>Name</td>
+                <td>Email</td>
+                <td>Action Commands</td>
+            </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="user in users">
+                    <td>{{user.name}}</td>
+                    <td>{{user.email}}</td>
+                    <td>
+                        <button ng-click="editUser(user)">Edit</button>
+                        <button ng-click="deleteUser(user)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </body>
+</html>

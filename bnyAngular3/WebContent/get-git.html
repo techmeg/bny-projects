@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>get students</title>
+<script src="js/angular.min.js">
+</script>
+</head>
+<body ng-app="DemoApp">
+    <div ng-controller="DemoController">
+        The repository from the controller: {{repos}}
+    </div>
+
+    <script>
+        var app = angular.module("DemoApp", []);
+
+        app.controller("DemoController", function($http, $scope) {
+            $http.get('https://api.github.com/users/angular/repos')
+            .then(function (response) {
+                $scope.repos = response.data;
+            })
+        });
+    </script>
+</body>
+
+</body>
+</html>

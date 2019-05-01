@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Imported JSON list</title>
+    <script src="js/angular.min.js"></script>
+    <style>
+        table {
+            border-collapse: collapse;
+            margin: 5px;
+        }
+        td, th {
+            padding: 5px;
+            border: 1px solid grey;
+        }
+    
+    </style>
+</head>
+
+<body ng-app="DemoApp" ng-controller="DemoController">
+    Enter your name: 
+    <input type="text"  ng-model="myName">
+
+    <table id="students">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+        </tr>
+        <tr ng-repeat="student in records | filter:{Name:myName} | orderBy:'Name'">
+            <td>{{student.ID}}</td>
+            <td>{{student.Name}}</td>
+            <td>{{student.Email}}</td>
+        </tr>
+
+
+    </table>
+            
+   <script>
+        var app = angular.module("DemoApp", []);
+
+        app.controller("DemoController", function ($http, $scope) {
+            $http.get('https://raw.githubusercontent.com/ahmshahparan/BNY01/master/plist.json?token=AQkwHzRXjf_IKMDFZTA8jEl2Lni7cq-cks5ck-p6wA%3D%3D')
+                .then(function (response) {
+                    $scope.records = response.data.records;
+            //        $scope.SortOrder = "+Name"; another way to sort
+                })
+                
+        });
+    </script>
+</body>
+
+</html>

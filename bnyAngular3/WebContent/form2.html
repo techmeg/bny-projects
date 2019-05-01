@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script src="js/angular.min.js"></script>
+</head>
+<body >
+
+    <form ng-app name="myForm" ng-init="myText='info@perscholas.org'">
+        Email:
+        <input type="email" name="myAddress" ng-model="myText" required>
+        <p>Edit the e-mail address, and try to change thestatus.</p>
+        <p>Valid: {{myForm.myAddress.$valid}}
+        (if true, the value meets all criteria).</p>
+        <p>Dirty: {{myForm.myAddress.$dirty}}
+            (if true, the value has been changed).</p>
+        <p>Touched: {{myForm.myAddress.$touched}}
+            (if true, the field has been in focus.)</p>
+
+        <p>Name:
+        <input name="myName" ng-model="myName" required>
+        <span ng-show="myForm.myName.$touched && myForm.myName.$invalid">The name is required.</span>
+        </p>
+       </form>
+<p>We use the ng-show directive to only show the error message if the field has been touched AND is empty.</p>
+</body>
+</html>

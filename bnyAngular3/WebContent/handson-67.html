@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>hands on 67</title>
+<script src="js/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="studentController">
+    
+    <form name="form" ng-submit="submitStudentForm()">
+        <label>Enter Student Name</label>
+        <input type="text" name="name" ng-model="newStudent.name" required><br>
+        <span ng-show="form.name.$error.required">Id/Name is required</span><br>
+        <br>
+
+        <label>Enter Student ID</label>
+        <input type="number" name="id" ng-model="newStudent.id" required><br>
+        <span ng-show="form.id.$error.required">Id/Name is required</span><br>
+        <br>
+
+        <label>Enter email</label>
+        <input type="email" name="email" ng-model="newStudent.email"><br>
+        <span ng-show="form.email.$invalid">Invalid email</span><br>
+        <br>
+
+        <button >Submit</button>
+
+       </form>
+       <br>
+        <button ng-click="resetForm()">Reset Form</button>
+
+       <script>
+           var app=angular.module ("myApp", []);
+           app.controller("studentController", function($scope, $window){
+               $scope.originalStudent = {id:1, name:"James Gosling", email:"jgosling@java.org"
+            };
+               $scope.newStudent = angular.copy($scope.originalStudent);
+    // OR      $scope.newStudent = {
+     //          id: $scope.originalStudent.id,
+       //        name: $scope.originalStudent.name,
+         //      email: $scope.originalStudent.email
+         //     };  
+            $scope.resetForm = function(){
+                $scope.newStudent = angular.copy($scope.originalStudent);
+                }
+              $scope.submitStudentForm = function () {
+               alert('id: ' + $scope.newStudent.id + 
+                '\nname: ' + $scope.newStudent.name +
+                '\nemail: ' + $scope.newStudent.email);
+                };
+           });
+       </script>
+</body>
+</html>
