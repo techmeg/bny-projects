@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Admission Form</title>
+	
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=EB+Garamond" rel="stylesheet">
+    
+   
+   <style>
+   	main {
+   	color: #37383a;
+   	width: 60%;
+   	margin: auto;
+   	background-color: #a0beef;
+   	border-radius: 5px;
+   	}
+   	h1 {
+   	margin: 20px;
+   	padding-top: 20px;
+   	font-size: 2em;
+   	}
+   	p {
+   	margin: 20px;
+   	}
+   	table {
+   	width: 60%;
+   	margin: auto;
+   	}
+   	label {
+   	text-align: right;
+   	}
+   	td.left {
+	width: 30%;
+   	}
+   	td.right {
+   	width: 100%;
+   	}
+   	input {
+   	padding: 5px;
+   	width: 100%;
+   	}
+   	.btn {
+   	width: 100%
+   	}
+   </style>
+</head>
+
+<body>
+<main>
+
+	<h1>Welcome to BNY!</h1>
+	<p>Please provide the following information to complete your application.</p>
+	
+
+	<table>
+		<tr>
+			<td class="left"><label>Name:</label></td>
+			<td class="right"><input type="text" name="sName" required placeholder="Enter your Name"/></td>
+		</tr>
+		
+		<tr>
+			<td><label>Course Name:</label></td>
+			<td><input type="text" name="sCourse" required placeholder="Enter your Course Name"/></td>
+		</tr>
+
+		<tr>
+			<td><label>Phone:</label></td>
+			<td><input type="text" name="sMobile" required placeholder="Enter your phone number"/></td>
+		</tr>
+
+		<tr>
+			<td><label>DOB</label></td>
+			<td><input type="sDOB" min="2019-01-01" name="dob" placeholder="Enter Date of Birth"/></td>
+		</tr>
+		
+		<tr>
+			<td><label>Skills</label></td>
+			<td><select name="sSkills" multiple>
+				<option value="HTML">HTML</option>
+				<option value="CSS">CSS</option>
+				<option value="Java">Java</option>
+			</select></td>
+		</tr>
+		
+		<tr>
+			<td><label>Address:</label></td>
+			<td></td>
+		</tr>
+	</table>
+	<table>
+		  <tr>
+		    <td><input type="text" name="sAddress.street" required placeholder="Enter your Street Name"/><br>
+			</td>
+		    <td><input type="text" name="sAddress.city" required placeholder="Enter your City"/></td>
+		   </tr>
+		   <tr>
+		    <td><input type="text" name="sAddress.state" required placeholder="Enter your State"/></td>
+		    <td><input type="text" name="sAddress.zip" required placeholder="Enter your Zipcode"/></td>
+		  </tr>
+		  <tr>
+		  	<td><input type="submit" name="submit" value="Apply"/></td>
+		  </tr>
+		</table>
+			
+
+	
+	
+	
+	</form>
+	</main>
+
+</body>
+</html>
