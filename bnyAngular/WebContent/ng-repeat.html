@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="ISO-8859-1">
+    <title>ng-repeat Directive</title>
+    <script src="js/angular.min.js"></script>
+    <style>
+    div {
+        border: 1px solid green;
+        width: 100%;
+        height: 50px;
+        display: block;
+        margin-bottom: 10px;
+        text-align: center;
+        background-color:yellow;
+    }
+    </style>
+</head>
+<body ng-app="" ng-init="students=['Max', 'Anna', 'Maria']">
+    <ol>
+        <li ng-repeat = "sName in students"><!--sName could be any variable name-->
+            <span ng-bind="sName"></span>
+        </li>
+    </ol>
+    <div ng-repeat="sName in students">
+        {{sName}}
+    </div>
+
+</body>
+</html>

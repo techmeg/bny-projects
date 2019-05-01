@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>controller scope</title>
+<script src="js/angular.min.js"></script>
+</head>
+<body ng-app="myNgApp">
+    <div id="div1" ng-controller="myController1"> // first controller applied
+        Message: {{message}}<br>
+        <div id="div2">
+         Message: {{message}}//child div shares first controller
+        </div>
+    </div>
+
+    <div id="div3">
+         Message: {{message}} // this one does not print -- no function happening
+    </div>
+
+    <div id="div4" ng-controller="myController2"> // second controller applied
+        Message: {{message}}        
+    </div>
+
+    <script>
+    var ngApp = angular.module('myNgApp',[]);
+    
+    ngApp.controller('myController1', function($scope) {
+        $scope.message = "This is my Controller1";
+    });
+     ngApp.controller('myController2', function($scope) {
+        $scope.message = "This is my Controller2";
+    });
+        </script>
+
+</body>
+</html>

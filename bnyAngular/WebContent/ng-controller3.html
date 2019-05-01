@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>ng-controller 3</title>
+<script src="js/angular.min.js"></script>
+</head>
+<body ng-app="myNgApp">
+    <div ng-controller="myController">
+        {{message}} You received a grade of {{grade}} in {{courses[0]}}.
+        <div ng-repeat="c in courses">{{c}} is great!</div>
+    </div>
+    <script>
+    var ngApp = angular.module('myNgApp', []);
+    ngApp.controller('myController', function ($scope) {
+        $scope.message = "Hello developers!";
+        $scope.courses = ["algebra", "history", "english"];
+        $scope.grade = "A+";
+    });
+    </script>
+
+</body>
+</html>
