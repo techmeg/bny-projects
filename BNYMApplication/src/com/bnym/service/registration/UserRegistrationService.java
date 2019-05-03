@@ -16,7 +16,7 @@ public interface UserRegistrationService {
 	
 	public List<UserRegistration> getAllUsers();
 	public UserRegistration getUserById(Long id);
-	public boolean saveUserById(UserRegistration user);
+	public boolean saveUser(UserRegistration user);
 	public boolean deleteUserById(Long id);
 
 }

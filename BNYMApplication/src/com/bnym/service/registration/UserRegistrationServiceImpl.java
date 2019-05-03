@@ -20,7 +20,7 @@ import com.bnym.repository.UserRegistrationRepository;
 @Service
 @Transactional
 public class UserRegistrationServiceImpl implements UserRegistrationService {
-	
+
 	@Autowired
 	private UserRegistrationRepository repository;
 
@@ -40,14 +40,14 @@ public class UserRegistrationServiceImpl implements UserRegistrationService {
 	}
 
 	@Override
-	public boolean saveUserById(UserRegistration user) {
+	public boolean saveUser(UserRegistration user) {
 		try {
 			repository.save(user);
 			return true;
-		}catch (Exception ex) {
+		} catch (Exception ex) {
 			return false;
 		}
-		
+
 	}
 
 	@Override
@@ -55,10 +55,10 @@ public class UserRegistrationServiceImpl implements UserRegistrationService {
 		try {
 			repository.deleteById(id);
 			return true;
-		}catch (Exception ex) {
+		} catch (Exception ex) {
 			return false;
 		}
-		
+
 	}
 
 }

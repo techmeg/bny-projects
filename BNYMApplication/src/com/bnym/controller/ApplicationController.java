@@ -2,6 +2,7 @@ package com.bnym.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import javax.validation.Valid;
 
@@ -20,14 +21,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.bnym.entities.Applicant;
-import com.bnym.service.application.old_ApplicationService;
+import com.bnym.service.application.ApplicationService;
 
 
 @Controller
 public class ApplicationController {
 	
 	@Autowired
-	old_ApplicationService applicationService;
+	ApplicationService applicationService;
 
 	
 	//this annotation looks for a particular data type (date in this case) 
@@ -47,6 +48,35 @@ public class ApplicationController {
 	
 		return mnv;
 	}
+	@RequestMapping("/deleteApplicant") 
+	public ModelAndView deleteApplicant(@RequestParam long id) {
+		applicationService.deleteApplicationById(id);
+		ModelAndView model = new ModelAndView("allApplications");
+		model.addObject("applicationList", applicationService.getAllApplications() );
+		return model;
+				
+	}
+
+	
+
+	@RequestMapping(value="editApplication/{id}", method= RequestMethod.GET)
+	public ModelAndView showEditApplicationForm(@PathVariable long id) {
+		Applicant applicant = applicationService.getApplicationById(id);
+		ModelAndView model = new ModelAndView("editApplication");
+		model.addObject("applicationForm", applicant);
+		//"applicationForm" is the name of the model attribute you are sending to editApplication form; is an identifier for one record
+		return model;
+	}
+	
+	
+	@RequestMapping(value="editApplication/{id}", method = RequestMethod.POST)
+	public ModelAndView saveEditedApplication(@ModelAttribute Applicant application, BindingResult result ) {
+		if(result.hasErrors()) {
+			System.out.print(result.toString());
+		}
+		applicationService.saveApplication(application);
+		return new ModelAndView("redirect:/showApplicants");
+	}
 	
 	@RequestMapping(value="/saveApplication", method=RequestMethod.POST)//step 3
 	public ModelAndView submitAdmissionForm(
@@ -57,39 +87,19 @@ public class ApplicationController {
 				ModelAndView model = new ModelAndView("newapplication");
 				return model;
 			}
-			applicant.setId((long)applicationService.getAllApplicants().size()+1);
-			applicationService.getAllApplicants().add(applicant);
+			applicationService.saveApplication(applicant);
+			applicationService.getAllApplications().add(applicant);
 			ModelAndView model = new ModelAndView("applysuccess");
 				return model;
-				
-	}@RequestMapping("/showApplicants")
-	public ModelAndView showAllApplicants() {
-		ModelAndView mav = new ModelAndView("allApplications");
-		mav.addObject("allApplicants", applicationService.getAllApplicants());
-
-		return mav;
-
 	}
-//	@RequestMapping("/showApplicant/{id}")
-//	public ModelAndView showOneApplicant(@PathVariable Map<String, String> id) {
-//	
-//		System.out.println("id: "+id);
-//		Applicant applicant = applicationService.getAllApplicants()
-//				.stream()
-//				.filter(appl -> (int) id == (appl.getId()))
-//				.findAny()
-//				.orElse(null);
-//		
-//		@RequestMapping("/goodbye/{userName}")
-//		public ModelAndView goodbye(
-//			@PathVariable Map<String, String> pathVar) {
-//			String userName = pathVar.get("userName");
-//		
-//	}
-	
+				
 
-	
-
-
+	@RequestMapping("/showApplicants")
+	public ModelAndView showAllApplicants() {
+		ModelAndView model = new ModelAndView("allApplications");
+		List<Applicant> applicationList = applicationService.getAllApplications();
+		model.addObject ("applicationList", applicationList);
+		return model;
+	}
 
 }

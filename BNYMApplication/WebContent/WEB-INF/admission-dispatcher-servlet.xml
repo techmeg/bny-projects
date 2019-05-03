@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<!-- this doc tells application where to find your views -->
+
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
@@ -22,7 +24,7 @@
 	<bean id="viewResolver"
 	class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 	<property name="prefix">
-		<value>/WEB-INF/</value>
+		<value>/WEB-INF/views/</value>
 	</property>
 	<property name="suffix">
 		<value>.jsp</value>

@@ -8,6 +8,8 @@ import com.bnym.entities.Applicant;
  * 
  * author meg parsons
  */
+
+
 public interface ApplicationService {
 	
 	public List<Applicant> getAllApplications();

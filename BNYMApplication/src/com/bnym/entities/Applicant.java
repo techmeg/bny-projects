@@ -49,7 +49,9 @@ public class Applicant {
 	
 	@NotNull
 	@Valid
-	@OneToOne(cascade = CascadeType.PERSIST)//makes the address be saved first, as it is dependent on Applicant
+	@OneToOne(cascade = CascadeType.ALL, orphanRemoval=true)
+	//CascadeType.PERSIST makes the address be saved first, as it is dependent on Applicant
+	//orphanRemoval=true deletes the address when the applicant is deleted
 	private Address sAddress;
 	
 	public Long getId() {

@@ -1,5 +1,9 @@
 package com.bnym.config;
-
+/*
+ * 
+ * This class configures the application for hibernate
+ * 
+ */
 import java.util.Properties;
 
 import javax.sql.DataSource;
@@ -20,7 +24,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories("com.bnym.repository")
+@EnableJpaRepositories("com.bnym.repository")//package name
 @PropertySource(value = {
 		"classpath:application.properties"
 })

@@ -1,0 +1,133 @@
+body {
+	color: gray;
+}
+
+#join-contest {
+
+}
+.img-group {
+	border: 1px dotted grey;
+	padding: 15px;
+	width: 100%;
+}
+
+.pix {
+   border: 2px solid rosybrown;
+   height: 150px;
+/*   display: flex;
+   margin: 30px;*/
+ }
+ .votes {
+ 	float: left;
+ 	font-weight: bold;
+ }
+ .pick-me {
+ 	float: right;
+ }
+ .winner1 {
+   border: 2px solid rosybrown;
+   height: 300px;
+   background: rosybrown url('${pageContext.request.contextPath}/images/active-philippe-gagne-470601.jpg') center no-repeat;
+  background-size: cover;
+ }
+.winner2{
+   border: 2px solid rosybrown;
+   height: 300px;
+   background: rosybrown url('../images/face-martina-misar-tummeltshammer-103131-unsplash.jpg') center no-repeat;
+  background-size: cover;
+}
+.winner3{
+   border: 2px solid rosybrown;
+   height: 300px;
+   background: rosybrown url('../images/home-cat-leaping.jpg') center no-repeat;
+  background-size: cover;
+}
+.caption {
+	font-size: 1.2rem;
+	font-weight: bold;
+}
+  
+ 
+ #img-1 {
+   background-color: rosybrown;
+   background-repeat: no-repeat;
+   background-image: url('../images/sleep-joop-vd-schaaf-1337213.jpg');
+   background-position: center;
+   background-size: cover;
+}
+#img-2 {
+  background: rosybrown url('../images/sleep-nine-kopfer-488433.jpg') center no-repeat;
+  background-size: cover;
+}
+#img-3 {
+  background: rosybrown url('../images/sleep-yanko-peyankov-3539.jpg') center no-repeat;
+  background-size: cover;
+}
+#img-4 {
+  background: rosybrown url('../images/sleep-zhan-zhang-1402682.jpg') center no-repeat;
+  background-size: cover;
+}
+#img-5 {
+  background: rosybrown url('../images/sleep-jonathan-fink-294000.jpg') center no-repeat;
+  background-size: cover;
+}
+#img-6 {
+  background: rosybrown url('../images/sleep-ioana-tabarcea-1131016.jpg') center no-repeat;
+  background-size: cover;
+}
+
+#img-8 {
+  background: rosybrown url('../images/active-adelin-grigorescu-1350162.jpg') center no-repeat;
+  background-size: cover;
+}
+#img-9 {
+  background: rosybrown url('../images/active-gogolev-aleksandr-1119827.jpg') center no-repeat;
+  background-size: cover;
+}
+#img-10 {
+  background: rosybrown url('../images/active-philippe-gagne-470601.jpg') center no-repeat;
+  background-size: cover;
+}
+#img-11 {
+  background: rosybrown url('../images/active-hisakata-hiroyuki-captures-photos-of-ninja-cats.jpg') center no-repeat;
+  background-size: cover;
+}
+#img-12 {
+  background: rosybrown url('../images/active-jump-play-kitty.jpg.638x0_q80_crop-smart.jpg') center no-repeat;
+  background-size: cover;
+}
+#img-13 {
+  background: rosybrown url('../images/active-ramiz-dedakovic-1331862.jpg') center no-repeat;
+  background-size: cover;
+}
+#img-14 {
+  background: rosybrown url('../images/face-yerlin-matu-481826-unsplash.jpg') center no-repeat;
+  background-size: cover;
+}
+#img-15 {
+  background: rosybrown url('../images/face-kasey-mccoy-755921-unsplash.jpg') center no-repeat;
+  background-size: cover;
+}
+#img-16 {
+  background: rosybrown url('../images/face-kim-davies-528680-unsplash.jpg') center no-repeat;
+  background-size: cover;
+}
+#img-17 {
+  background: rosybrown url('../images/face-makhmutova-dina-383607-unsplash.jpg') center no-repeat;
+  background-size: cover;
+}
+#img-18 {
+  background: rosybrown url('../images/face-martina-misar-tummeltshammer-103131-unsplash.jpg') center no-repeat;
+  background-size: cover;
+}
+#img-19 {
+  background: rosybrown url('../images/home-asique-alam-69936.jpg') center no-repeat;
+  background-size: cover;
+}
+/*** footer ***/
+ footer {
+     clear: both;
+     width: 100%;
+     border-top: 1px solid gray;
+     padding: 20px;
+ }
