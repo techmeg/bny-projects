@@ -1,3 +1,10 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+
+<%@page session="false"%>
+
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +20,7 @@
 
 <!-- whose kitty styles -->
 
-<link href="../css/mainkitty.css" rel="stylesheet">
+<link href="./styles/mainkitty.css" rel="stylesheet">
 </head>
 
 <body>
@@ -54,6 +61,8 @@
 					</div>
 					<div class="col-4  img-group">
 						<div class="pix" id="img-2"></div>
+						<h5>${catName }</h5>
+						<p>${catBlurb }</p>
 						<p class="votes">${numVotes}Votes</p>
 						<button class="pick-me">Pick Me</button>
 					</div>
@@ -180,6 +189,8 @@
 					age -- "kitty" just makes for a more euphonious tag line.)</p>
 					<h4>Submission Deadline: ${deadline}</h4>
 
+			<!-- Modal with Form to Register Cat Owner as Voter -->	
+
 				<!-- Button HTML (to Trigger Modal) --> <a href="#joinContest"
 					class="btn btn-lg btn-info" data-toggle="modal">Join Contest</a> <!-- Modal HTML -->
 				<div id="joinContest" class="modal fade">
@@ -193,15 +204,19 @@
 								<p>Register your info below to enter. You can only vote once
 									per contest, so, only one cat can enter this time. You can
 									enter your other pet next time.</p>
-								<form>
+									
+				<!----------- Form to Register  --------->					
+								<form action="/CaseStudy/registercat" method="POST">
 									<div class="form-group">
-										<label for="inputName">Name</label> <input type="text"
-											class="form-control" id="inputName" placeholder="First Name">
+										<label for="inputName" name="name">Name</label>
+										<input type="text" name="name" class="form-control"
+											id="inputName" placeholder="First Name" />
 									</div>
 									<div class="form-group">
-										<label for="inputEmail">Email</label> <input type="email"
-											name="cEmail" class="form-control" id="inputEmail"
-											placeholder="Email">
+										<label for="inputEmail" name="email">Email</label> 
+										<input type="email"
+											name="email" class="form-control" id="inputEmail"
+											placeholder="Email"/>
 									</div>
 									<p>(In case you are wondering...your cat's information will
 										be taken in the next form.)</p>
@@ -231,7 +246,8 @@
 
 	</div>
 
-    <footer>Copyright 2019 Meg Parsons</footer>
+    <footer>Copyright 2019 Meg Parsons
+    </footer>
 
 	<!-- JS files: jQuery first, then Popper.js, then Bootstrap JS -->
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -246,4 +262,6 @@
 		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 		crossorigin="anonymous"></script>
 </body>
+
+
 </html>

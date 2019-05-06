@@ -4,6 +4,7 @@ package bnym.casestudy.config;
  * This class configures the application for hibernate
  * 
  */
+
 import java.util.Properties;
 
 import javax.sql.DataSource;
@@ -24,7 +25,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories("wkc.repository")//package name
+@EnableJpaRepositories("bnym.casestudy.repository")//package name
 @PropertySource(value = {
 		"classpath:application.properties"
 })
@@ -39,8 +40,8 @@ public LocalContainerEntityManagerFactoryBean getEntityManagerFactoryBean() {
 	LocalContainerEntityManagerFactoryBean lcemfb = new LocalContainerEntityManagerFactoryBean();
 	lcemfb.setJpaVendorAdapter(getJpaVendorAdapter());
 	lcemfb.setDataSource(dataSource());
-	lcemfb.setPersistenceUnitName("AdmissionPersistenceUnit");
-	lcemfb.setPackagesToScan("com.bnym");
+	lcemfb.setPersistenceUnitName("WKCPersistenceUnit");
+	lcemfb.setPackagesToScan("bnym.casestudy");
 	lcemfb.setJpaProperties(hibernateProperties());
 	return lcemfb;
 }

@@ -1,28 +1,50 @@
 package bnym.casestudy.entities;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.validation.constraints.NotNull;
+
+@Entity
 public class Cat {
 	
-	private int catID;
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private Long catId;
+	
+	@NotNull
 	private String catName;
+	
 	private int numVotes;
-	private String photoLink;
+	
+	@NotNull
+	private String photo;
+	
+	@NotNull
 	private String catBlurb;
 	
-	public Cat(int catID, String catName, String photoLink, String catBlurb) {
+	public Cat(String catName, String photo, String catBlurb) {
 		super();
-		this.catID = catID;
 		this.catName = catName;
-		this.numVotes = 1;
-		this.photoLink = photoLink;
+		this.photo = photo;
 		this.catBlurb = catBlurb;
 	}
-
-	public int getCatID() {
-		return catID;
+	
+	public Cat() {
+		
 	}
 
-	public void setCatID(int catID) {
-		this.catID = catID;
+
+	public Long getCatId() {
+		return catId;
+	}
+
+	public void setCatId(Long catId) {
+		this.catId = catId;
 	}
 
 	public String getCatName() {
@@ -41,14 +63,14 @@ public class Cat {
 		this.numVotes = numVotes;
 	}
 
-	public String getPhotoLink() {
-		return photoLink;
+	public String getPhoto() {
+		return photo;
 	}
 
-	public void setPhotoLink(String photoLink) {
-		this.photoLink = photoLink;
+	public void setPhoto(String photo) {
+		this.photo = photo;
 	}
-	
+
 	public String getCatBlurb() {
 		return catBlurb;
 	}

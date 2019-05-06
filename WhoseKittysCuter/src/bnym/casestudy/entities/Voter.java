@@ -1,41 +1,75 @@
 package bnym.casestudy.entities;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+
+@Entity
 public class Voter {
 	
-	private String vEmail;
-	private int contestID;
-	private int photoID;
+	@NotNull
+	private String name;
 	
+	@Id
+	private String email;
 	
-	public Voter(String vEmail, int contestID, int photoID) {
+	public Voter(String name, String email) {
 		super();
-		this.vEmail = vEmail;
-		this.contestID = contestID;
-		this.photoID = photoID;
+		this.name = name;
+		this.email = email;
 	}
+
+	public Voter () {
+		
+	}
+	private Long contestId;
+	private String photo;
 	
-	public String getvEmail() {
-		return vEmail;
+	
+	
+
+	public String getName() {
+		return name;
 	}
-	public void setvEmail(String vEmail) {
-		this.vEmail = vEmail;
+
+	public void setName(String name) {
+		this.name = name;
 	}
-	public int getContestID() {
-		return contestID;
+
+	public String getEmail() {
+		return email;
 	}
-	public void setContestID(int contestID) {
-		this.contestID = contestID;
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
-	public int getPhotoID() {
-		return photoID;
+
+	public Long getContestId() {
+		return contestId;
 	}
-	public void setPhotoID(int photoID) {
-		this.photoID = photoID;
+
+	public void setContestId(Long contestId) {
+		this.contestId = contestId;
 	}
+
+	public String getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
+
+
+	
 	
 
 	
-
 	
+	public void register() {}
+	
+	public void uploadPhoto() {}
+	
+	public void seeWinnerReport() {}
 
 }

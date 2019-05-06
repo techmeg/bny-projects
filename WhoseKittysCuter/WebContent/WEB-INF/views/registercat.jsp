@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+
 <!DOCTYPE html>
 <html>
 
@@ -33,6 +36,8 @@
 					data-target="#navbarCollapse">
 					<span class="navbar-toggler-icon"></span>
 				</button>
+				
+				<div>Message goes here!!! ${msg }</div>
 
 				<div class="collapse navbar-collapse" id="navbarCollapse">
 					<div class="navbar-nav">

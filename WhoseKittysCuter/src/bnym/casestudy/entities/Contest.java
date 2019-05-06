@@ -1,35 +1,60 @@
 package bnym.casestudy.entities;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.validation.constraints.NotNull;
+
+@Entity
 public class Contest {
 	
-	private String contestID;
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private Long id;
+	
+	@NotNull(message="Name field cannot be empty.")
+	private String contestName;
+	
+	@NotNull(message="Field cannot be empty.")
 	private String contestBlurb;
-	private int voteCount;
+	
+	@NotNull(message="Field cannot be empty.")
 	private String status;
+	
+	@NotNull(message="Field cannot be empty.")
 	private Date deadline;
 	
-	public Contest(String contestID, String contestBlurb, int voteCount, String status, Date deadline) {
-		super();
-		this.contestID = contestID;
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private List<Cat> contestantList;
+	
+	public Contest(String contestName, String contestBlurb, String status, Date deadline) {
+		this.contestName = contestName;
 		this.contestBlurb = contestBlurb;
-		this.voteCount = voteCount;
 		this.status = status;
 		this.deadline = deadline;
 	}
-	
-	private List<Contestant> contestantList;
-	
 
-	public String getContestID() {
-		return contestID;
+
+	public Long getId() {
+		return id;
 	}
 
-	public void setContestID(String contestID) {
-		this.contestID = contestID;
+	public String getContestName() {
+		return contestName;
 	}
+
+	public void setContestName(String contestName) {
+		this.contestName = contestName;
+	}
+
 
 	public String getContestBlurb() {
 		return contestBlurb;
@@ -37,14 +62,6 @@ public class Contest {
 
 	public void setContestBlurb(String contestBlurb) {
 		this.contestBlurb = contestBlurb;
-	}
-
-	public int getVoteCount() {
-		return voteCount;
-	}
-
-	public void setVoteCount(int voteCount) {
-		this.voteCount = voteCount;
 	}
 
 	public String getStatus() {
@@ -63,13 +80,5 @@ public class Contest {
 		this.deadline = deadline;
 	}
 	
-	public void updateGallery() {}
-	
-	public int countVotes() {
-		int count = 0;
-		
-		//code 
-		
-		return count;
-	}
+
 }

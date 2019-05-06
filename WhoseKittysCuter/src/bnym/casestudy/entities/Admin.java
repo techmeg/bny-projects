@@ -2,8 +2,6 @@ package bnym.casestudy.entities;
 
 public class Admin {
 	
-	private String email;
-	private String password;
 	
 	protected void updateContestBlurb() {}
 	
