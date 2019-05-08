@@ -33,7 +33,7 @@ public class Contest {
 	private Date deadline;
 	
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	private List<Cat> contestantList;
+	private List<Cat> catList;
 	
 	public Contest(String contestName, String contestBlurb, String status, Date deadline) {
 		this.contestName = contestName;
@@ -42,6 +42,9 @@ public class Contest {
 		this.deadline = deadline;
 	}
 
+	public Contest() {
+		
+	}
 
 	public Long getId() {
 		return id;

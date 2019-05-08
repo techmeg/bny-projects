@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <!DOCTYPE html>
 <html>
@@ -14,7 +15,7 @@
 	crossorigin="anonymous">
 
 <!--  my styles -->
-<link rel="stylesheet" type="text/css" href="../styles/register.css">
+<link rel="stylesheet" type="text/css" href="./styles/register.css">
 
 
 
@@ -37,7 +38,6 @@
 					<span class="navbar-toggler-icon"></span>
 				</button>
 				
-				<div>Message goes here!!! ${msg }</div>
 
 				<div class="collapse navbar-collapse" id="navbarCollapse">
 					<div class="navbar-nav">
@@ -67,25 +67,25 @@
 
 			<div class="form_container">
 				<h1>Your Cat's Information</h1>
-				<form class="form" method="post" action="re" id="form" autocomplete="on">
+				<form:form action="registrationsuccess" method="POST" class="form" enctype="multipart/form-data"
+				 id="form" autocomplete="on" >
 					<div class="field_container">
 						<img src="../images/black-cat-icon-18787.png" /> 
-						<input type="text" name="catName" placeholder="Cat Name" required />
+						<input type="text" name="name" placeholder="Cat Name"  />
 					</div>
 					<div class="field_container">
 						<img src="../images/photo.png" /> 
-						<input type="file"	name="photoLink"  required />
+						<input type="file"	name="file"   />
 					</div>
 					<label>Tell us about your cat!</label>
 					<div class="field_container2">
 					
-						<textarea name="catBlurb" rows=3 cols=80 maxlength=150 placeholder="Tell us more...">
-						</textarea>
+						<textarea name="blurb" rows="3" cols="80" maxlenght="150"></textarea>
 					</div>
 					<div class="button_container">
 						<input type="submit" value="Submit" />
 					</div>
-				</form>
+				</form:form>
 
 			</div>
 			<div id="feedback"></div>

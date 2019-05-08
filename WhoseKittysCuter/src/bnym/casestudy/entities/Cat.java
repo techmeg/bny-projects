@@ -1,6 +1,7 @@
 package bnym.casestudy.entities;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -14,45 +15,47 @@ public class Cat {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Long catId;
+	@Column(name="Cat_Id")
+	private Long id;
 	
 	@NotNull
-	private String catName;
+	private String cName;
 	
 	private int numVotes;
 	
+
+
 	@NotNull
 	private String photo;
 	
 	@NotNull
-	private String catBlurb;
-	
-	public Cat(String catName, String photo, String catBlurb) {
+	private String blurb;
+
+	public Cat(String cName, int numVotes, String photo, String blurb) {
 		super();
-		this.catName = catName;
+		this.cName = cName;
+		this.numVotes = numVotes;
 		this.photo = photo;
-		this.catBlurb = catBlurb;
+		this.blurb = blurb;
 	}
-	
-	public Cat() {
+	public Cat(){
 		
 	}
-
-
-	public Long getCatId() {
-		return catId;
+	
+	public Long getId() {
+		return id;
 	}
 
-	public void setCatId(Long catId) {
-		this.catId = catId;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
-	public String getCatName() {
-		return catName;
+	public String getName() {
+		return cName;
 	}
 
-	public void setCatName(String catName) {
-		this.catName = catName;
+	public void setName(String cName) {
+		this.cName = cName;
 	}
 
 	public int getNumVotes() {
@@ -71,12 +74,11 @@ public class Cat {
 		this.photo = photo;
 	}
 
-	public String getCatBlurb() {
-		return catBlurb;
-	}
-	
-	public void setCatBlurb(String catBlurb) {
-		this.catBlurb = catBlurb;
+	public String getBlurb() {
+		return blurb;
 	}
 
+	public void setBlurb(String blurb) {
+		this.blurb = blurb;
+	}
 }

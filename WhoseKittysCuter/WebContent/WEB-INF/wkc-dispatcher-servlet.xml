@@ -19,9 +19,9 @@
 
 	<mvc:annotation-driven />
 	<mvc:resources mapping="/styles/**" location="/styles/" />
-	<mvc:resources mapping="/images/**" location="/images/" 
-		cache-period="31556926"/>
-		
+	<mvc:resources mapping="/images/**" location="/images/"
+		cache-period="31556926" />
+
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix">
@@ -32,5 +32,18 @@
 		</property>
 	</bean>
 
+	<!-- Configure the multipart resolver -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="10000000" />
+		<property name="uploadTempDir" ref="uploadDirResource" />
+	</bean>
+
+	<bean id="uploadDirResource"
+		class="org.springframework.core.io.FileSystemResource">
+		<constructor-arg>
+			<value>D:\Users\ProjectImages</value>
+		</constructor-arg>
+	</bean>
 
 </beans>

@@ -2,7 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 
 <%@page session="false"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <!DOCTYPE html>
@@ -53,44 +53,26 @@
 					you don't want to curl up and pet these purr-fect cats, well you
 					just aren't cat-parent material. Choose the one you'd most like to
 					snuggle up with."</p>
+					
+	<!-- show list of cats in gallery -->
 				<div class="row ">
+
+				<c:forEach items="${catList }" var="cat">
+					
 					<div class="col-4  img-group">
-						<div class="pix" id="img-1"></div>
-						<p class="votes">${numVotes}Votes</p>
+	
+						<div class="pix" style="background-color: rosybrown;   
+						background-position: center background-repeat: no-repeat; background-size: cover)">
+							<img class="pix" style="object-fit: cover; width: 100%;" src="./images/${cat.photo}"/>
+						</div>
+						<h5 class="mt-1">${cat.name }</h5>
+						<p class="blurb">${cat.blurb }</p>
+						<p class="votes">${cat.numVotes}&nbsp;Votes</p>
 						<button class="pick-me">Pick Me</button>
 					</div>
-					<div class="col-4  img-group">
-						<div class="pix" id="img-2"></div>
-						<h5>${catName }</h5>
-						<p>${catBlurb }</p>
-						<p class="votes">${numVotes}Votes</p>
-						<button class="pick-me">Pick Me</button>
-					</div>
-					<div class="col-4  img-group">
-						<div class="pix" id="img-3"></div>
-						<p class="votes">${numVotes}Votes</p>
-						<button class="pick-me">Pick Me</button>
-					</div>
-					<div class="col-4 img-group">
-						<div class="pix" id="img-4"></div>
-						<p class="votes">${numVotes}Votes</p>
-						<button class="pick-me">Pick Me</button>
-					</div>
-					<div class="col-4 img-group">
-						<div class="pix" id="img-5"></div>
-						<p class="votes">${numVotes}Votes</p>
-						<button class="pick-me">Pick Me</button>
-					</div>
-					<div class="col-4 img-group">
-						<div class="pix" id="img-6"></div>
-						<p class="votes">${numVotes}Votes</p>
-						<button class="pick-me">Pick Me</button>
-					</div>
-					<div class="col-4  img-group">
-						<div class="pix" id="img-1"></div>
-						<p class="votes">${numVotes}Votes</p>
-						<button class="pick-me">Pick Me</button>
-					</div>
+				</c:forEach>
+
+		
 					<div class="col-4  img-group">
 						<div class="pix" id="img-2"></div>
 						<p class="votes">${numVotes}Votes</p>
@@ -123,62 +105,14 @@
 					</div>
 					<div class="col-4  img-group">
 						<div class="pix" id="img-2"></div>
-						<p class="votes">${numVotes}Votes</p>
-						<button class="pick-me">Pick Me</button>
-					</div>
-					<div class="col-4  img-group">
-						<div class="pix" id="img-3"></div>
-						<p class="votes">${numVotes}Votes</p>
-						<button class="pick-me">Pick Me</button>
-					</div>
-					<div class="col-4 img-group">
-						<div class="pix" id="img-4"></div>
-						<p class="votes">${numVotes}Votes</p>
-						<button class="pick-me">Pick Me</button>
-					</div>
-					<div class="col-4 img-group">
-						<div class="pix" id="img-5"></div>
-						<p class="votes">${numVotes}Votes</p>
-						<button class="pick-me">Pick Me</button>
-					</div>
-					<div class="col-4 img-group">
-						<div class="pix" id="img-6"></div>
-						<p class="votes">${numVotes}Votes</p>
-						<button class="pick-me">Pick Me</button>
-					</div>
-										<div class="col-4  img-group">
-						<div class="pix" id="img-1"></div>
-						<p class="votes">${numVotes}Votes</p>
-						<button class="pick-me">Pick Me</button>
-					</div>
-					<div class="col-4  img-group">
-						<div class="pix" id="img-2"></div>
-						<p class="votes">${numVotes}Votes</p>
-						<button class="pick-me">Pick Me</button>
-					</div>
-					<div class="col-4  img-group">
-						<div class="pix" id="img-3"></div>
-						<p class="votes">${numVotes}Votes</p>
-						<button class="pick-me">Pick Me</button>
-					</div>
-					<div class="col-4 img-group">
-						<div class="pix" id="img-4"></div>
-						<p class="votes">${numVotes}Votes</p>
-						<button class="pick-me">Pick Me</button>
-					</div>
-					<div class="col-4 img-group">
-						<div class="pix" id="img-5"></div>
-						<p class="votes">${numVotes}Votes</p>
-						<button class="pick-me">Pick Me</button>
-					</div>
-					<div class="col-4 img-group">
-						<div class="pix" id="img-6"></div>
 						<p class="votes">${numVotes}Votes</p>
 						<button class="pick-me">Pick Me</button>
 					</div>
 				</div>
-
 			</div>
+<!-- beginning of sidebar -->
+
+
 			<div class="col-4 mt-4 px-4">
 				<sidebar id="join-contest">
 				<h2>Next week: Fiercest Kitty Face!</h2>
@@ -206,7 +140,7 @@
 									enter your other pet next time.</p>
 									
 				<!----------- Form to Register  --------->					
-								<form action="/CaseStudy/registercat" method="POST">
+								<form action="/CaseStudy/registrationsuccess" method="POST" enctype="multipart/form-data">
 									<div class="form-group">
 										<label for="inputName" name="name">Name</label>
 										<input type="text" name="name" class="form-control"
@@ -218,12 +152,27 @@
 											name="email" class="form-control" id="inputEmail"
 											placeholder="Email"/>
 									</div>
-									<p>(In case you are wondering...your cat's information will
-										be taken in the next form.)</p>
-
+				<!-- Cat INFO -->
+									<h5>Your Cat's Information</h5>
+									<div class="form-group">
+										<label for="inputcName" name="cName">Cat Name</label>
+										<input type="text" name="cName" class="form-control" 
+											placeholder="Cat Name"  />
+									</div>
+									<div class="form-group">
+										<input type="file"	name="file"  class="form-control" placeholder="No file chosen"/>
+									</div>
+										
+									<div class="form-group">
+										<label for="inputcBlurb" name="cBlurb">
+										Tell us about your cat!</label>
+										<textarea class="form-control" name="cBlurb" rows="3" cols="80" maxlength="150"></textarea>
+									</div>
+											
 									<button type="submit" class="btn btn-primary">Register</button>
 								</form>
 							</div>
+	
 							<div class="modal-footer"></div>
 						</div>
 					</div>
