@@ -17,10 +17,10 @@ public class AdminController {
 	
 
 	
-	@RequestMapping(value = "/admin**", method = RequestMethod.GET)
+	@RequestMapping(value = "/admin", method = RequestMethod.GET)
 	public ModelAndView adminPage() {
 
-		ModelAndView model = new ModelAndView();
+		ModelAndView model = new ModelAndView("redirect:showcontests");
 		model.addObject("title", "Spring Security Hello World");
 		model.addObject("message", "This is protected page!");
 		model.setViewName("admin");

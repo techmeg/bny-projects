@@ -31,6 +31,10 @@
 			<value>.jsp</value>
 		</property>
 	</bean>
+	
+	<!-- aded for secure login -->
+	
+		<mvc:view-controller path="/login" view-name="login"/>
 
 	<!-- Configure the multipart resolver -->
 	<bean id="multipartResolver"

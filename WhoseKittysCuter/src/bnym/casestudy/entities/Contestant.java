@@ -1,6 +1,7 @@
 package bnym.casestudy.entities;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -12,12 +13,13 @@ public class Contestant {
 
 	
 	@NotNull
+	@Column(name = "Owner_Name")
 	private String name;
 	
-	@NotNull
-	private Long contestId;
 	
 	@Id
+	@NotNull
+	@Column(name = "Email")
 	private String email;
 	
 	@OneToOne(optional=false)
@@ -30,12 +32,7 @@ public class Contestant {
 		this.email = email;
 
 	}
-	public Long getContestId() {
-		return contestId;
-	}
-	public void setContestId(Long contestId) {
-		this.contestId = contestId;
-	}
+
 	public Contestant () {
 		
 	}

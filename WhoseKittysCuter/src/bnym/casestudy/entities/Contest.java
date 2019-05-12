@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -35,6 +36,9 @@ public class Contest {
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Cat> catList;
 	
+	@OneToOne(cascade = CascadeType.ALL, orphanRemoval=true)
+	private Winner winner;
+	
 	public Contest(String contestName, String contestBlurb, String status, Date deadline) {
 		this.contestName = contestName;
 		this.contestBlurb = contestBlurb;
@@ -46,8 +50,14 @@ public class Contest {
 		
 	}
 
+
+
 	public Long getId() {
 		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getContestName() {
@@ -83,5 +93,12 @@ public class Contest {
 		this.deadline = deadline;
 	}
 	
+	public Winner getWinner() {
+		return winner;
+	}
+
+	public void setWinner(Winner winner) {
+		this.winner = winner;
+	}
 
 }

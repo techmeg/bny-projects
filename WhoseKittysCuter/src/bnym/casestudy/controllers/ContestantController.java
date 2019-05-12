@@ -1,6 +1,9 @@
 package bnym.casestudy.controllers;
 
 import java.util.List;
+
+//Not using this controller at present...
+
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +28,7 @@ public class ContestantController {
 		List<Contestant> cList = contestantservices.getAllContestants();
 
 		Contestant c1 = new Contestant(values.get("name"), values.get("email"));
-		c1.setContestId(0L);
+		
 
 		for (Contestant cont : cList) {
 			if (cont.getEmail().equals(c1.getEmail())) {

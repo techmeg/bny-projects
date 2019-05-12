@@ -9,6 +9,7 @@ import java.util.Properties;
 
 import javax.sql.DataSource;
 
+import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,6 +17,7 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
@@ -33,6 +35,18 @@ public class HibernateConfig {
 
 	@Autowired //this is a dependency injection
 	private Environment environment;
+	
+	//below added for security additions
+	
+    @Bean
+    public SessionFactory sessionFactory() {
+            LocalSessionFactoryBuilder builder = 
+		new LocalSessionFactoryBuilder(dataSource());
+            builder.scanPackages("bnym.casestudy")
+                  .addProperties(hibernateProperties());
+
+            return builder.buildSessionFactory();
+    }
 
 /**************** Start Spring JPA config details*************************/
 @Bean(name= "entityManagerFactory")

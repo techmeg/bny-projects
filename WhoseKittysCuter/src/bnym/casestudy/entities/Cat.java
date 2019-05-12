@@ -1,13 +1,10 @@
 package bnym.casestudy.entities;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -21,6 +18,11 @@ public class Cat {
 	@NotNull
 	private String cName;
 	
+	@NotNull
+	private Long contestId;
+	
+	
+
 	private int numVotes;
 	
 
@@ -50,14 +52,12 @@ public class Cat {
 		this.id = id;
 	}
 
-	public String getName() {
+	public String getcName() {
 		return cName;
 	}
-
-	public void setName(String cName) {
+	public void setcName(String cName) {
 		this.cName = cName;
 	}
-
 	public int getNumVotes() {
 		return numVotes;
 	}
@@ -80,5 +80,11 @@ public class Cat {
 
 	public void setBlurb(String blurb) {
 		this.blurb = blurb;
+	}
+	public Long getContestId() {
+		return contestId;
+	}
+	public void setContestId(Long contestId) {
+		this.contestId = contestId;
 	}
 }

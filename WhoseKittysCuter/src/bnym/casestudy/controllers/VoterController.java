@@ -1,26 +1,11 @@
 package bnym.casestudy.controllers;
 
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.util.List;
-import java.util.Map;
-
-import javax.servlet.ServletContext;
-import javax.servlet.http.HttpSession;
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import bnym.casestudy.entities.Cat;
@@ -33,8 +18,31 @@ public class VoterController {
 
 	@Autowired
 	VoterDAO voterservices;
+	
+	@Autowired
+	CatDAO catservices;
+	
+	@RequestMapping(value="voterRegistration/{id}", method= RequestMethod.GET)
+	public ModelAndView registerVoter(@PathVariable long id) {
+		Cat cat= catservices.getCatById(id);
+		int numVotes = cat.getNumVotes() + 1;
+		System.out.println( "Cat ID: " + id + "numVotes " + numVotes);
 
-//	@RequestMapping(value = "/registercat", method = RequestMethod.POST)
+		cat.setNumVotes(numVotes);
+		catservices.saveCat(cat);
+		System.out.println("numVotes " + cat.getNumVotes());
+		ModelAndView model = new ModelAndView("registerform");
+		return model;
+	}	
+	
+	@RequestMapping(value="/voterSuccess", method=RequestMethod.POST)
+	public ModelAndView voterSuccess(@RequestParam String name, @RequestParam String email) {
+		Voter voter = new Voter(name, email);
+		voterservices.saveVoter(voter);
+		return new ModelAndView("redirect:/");
+	}
+
+//	@RequestMapping(value = "/voterRegistration", method = RequestMethod.POST)
 //	public ModelAndView validateVoter(@RequestParam Map<String, String> values) {
 //
 //		List<Voter> vList = voterservices.getAllVoters();
