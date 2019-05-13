@@ -1,0 +1,23 @@
+.main-container {
+    margin: 0;
+    padding: 0;
+    width: 600px;
+    height: 100px;
+    background: {
+        color: aqua;
+        image: url("r.png");
+    }
+    border: 12px solid {
+        color: red;
+    }
+    nav{
+        padding: 0;
+        ul{
+            display: inline-block;
+            &:hover{
+                box-shadow: 1px 1px 10px red;;
+            }
+        }
+    }
+    @import "second.sass.scss"
+}

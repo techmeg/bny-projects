@@ -1,0 +1,25 @@
+.main-container {
+  margin: 0;
+  padding: 0;
+  width: 600px;
+  height: 100px;
+  background-color: aqua;
+  background-image: url("r.png");
+  border: 12px solid;
+  border-color: red;
+}
+.main-container nav {
+  padding: 0;
+}
+.main-container nav ul {
+  display: inline-block;
+}
+.main-container nav ul:hover {
+  box-shadow: 1px 1px 10px red;
+}
+.main-container div {
+  width: 100px;
+  height: 50px;
+}
+
+/*# sourceMappingURL=sassSample.css.map */
