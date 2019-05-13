@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Grid Samples)</title>
+		<link rel="stylesheet" type="text/css" href="./styles/grids.css"/>
+		<link href="https://fonts.googleapis.com/css?family=Mukta:400,600" rel="stylesheet">
+        <style>
+            /* in line grid, centered text (default) */
+        .grid-container1 {
+            display: inline-grid;
+            grid-template-columns: auto auto;
+            grid-gap: 10px;
+            padding: 15px;
+            background-color: skyblue;
+            margin-bottom: 2%;
+        }
+        /* grid with space-evenly alignment, centered text */
+        .grid-container-space {
+            display: inline-grid;
+            grid-template-columns: 40% 20% 40%;
+            grid-gap: 10px;
+            padding: 15px;
+            text-align: center;
+            background-color: skyblue;
+            margin-bottom: 2%;
+            justify-content: space-evenly;
+        }
+        .grid-item {
+            background-color: violet;
+            border: 1px solid darkblue;
+            padding: 20px;
+            color: white;
+            justify-content: center;
+        }
+        .grid-container-end {
+            display: inline-grid;
+            width: 400px;
+            grid-template-columns: auto auto;
+            grid-gap: 10px;
+            padding: 15px;
+            background-color: skyblue;
+            margin-bottom: 2%;
+            text-align: right;
+            justify-content: end;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: 4(auto);
+            grid-gap: 10px;
+            padding: 15px;
+            background-color: skyblue;
+            margin-bottom: 2%;
+}
+        .item-six {
+            grid-column-start: 3; /* alternate: grid-column: 3/2;*/
+            grid-column-end: 5;
+        }
+        .item-seven {
+            grid-row: 2 / span 2;
+            
+        }
+        .grid-area {
+            display: grid;
+            background-color: lavender;
+            margin-bottom: 1.5em;
+        }
+        </style>
+	</head>
+	<body>
+	<div class="grid-container1">
+				<div class="grid-item">1</div>
+				<div class="grid-item">2</div>
+				<div class="grid-item">3</div>
+				<div class="grid-item">4</div>
+				<div class="grid-item">5</div>
+                <div class="grid-item">6</div>
+            </div>
+			<div class="grid-container-space">
+				<div class="grid-item">This grid is styled with space-evenly.</div>
+				<div class="grid-item">2</div>
+				<div class="grid-item">3</div>
+				<div class="grid-item">4</div>
+				<div class="grid-item">5</div>
+                <div class="grid-item">6</div>
+            </div>
+			<div class="grid-container-end">
+				<div class="grid-item">This grid is styled with end.</div>
+				<div class="grid-item">2</div>
+				<div class="grid-item">3</div>
+				<div class="grid-item">4</div>
+            </div>	
+            <div class="grid-container">
+		<div class="grid-item">1</div>
+		<div class="grid-item">2</div>
+		<div class="grid-item">3</div>
+		<div class="grid-item">4</div>
+		<div class="grid-item">5</div>
+		<div class="grid-item item-six">6</div>
+		<div class="grid-item item-seven">7</div>
+		<div class="grid-item">8</div>
+		<div class="grid-item">9</div>
+		<div class="grid-item">10</div>
+	</div>
+	</body>

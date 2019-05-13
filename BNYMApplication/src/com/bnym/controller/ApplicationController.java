@@ -48,7 +48,7 @@ public class ApplicationController {
 	
 		return mnv;
 	}
-	@RequestMapping("/deleteApplicant") 
+	@RequestMapping("deleteApplicant") 
 	public ModelAndView deleteApplicant(@RequestParam long id) {
 		applicationService.deleteApplicationById(id);
 		ModelAndView model = new ModelAndView("allApplications");

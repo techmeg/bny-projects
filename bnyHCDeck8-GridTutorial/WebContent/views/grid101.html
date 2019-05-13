@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Grids 101</title>
+<link rel="stylesheet" type="text/css" href="../styles/maingrid.css" />
+<link href="https://fonts.googleapis.com/css?family=Mukta:400,600"
+	rel="stylesheet">
+</head>
+<body>
+	<header>
+		<nav>
+			<img class="logo"
+				src="https://du11hjcvx0uqb.cloudfront.net/dist/images/login/canvas-logo-a66b946d8d.svg"
+				id="logo" alt="Canvas logo" />
+			<ul>
+				<li><a class="link1" href="../index.html">Home</a></li>
+				<li><a class="link2" href="./gridAdvanced.html">Grid
+						Content</a></li>
+			</ul>
+		</nav>
+	</header>
+	<main id="main-content">
+	<h1>Grids 101</h1>
+
+	<p>
+		So, you have declared your element a grid. First, the basics: vertical
+		sections are called "columns" and horizontal sections are called
+		"rows." To design your grid, you must set some basic parameters,
+		starting with <strong>grid-template-columns,
+			grid-template-rows (optional), grid-gap, </strong> as well as other, more
+		general styling.
+	</p>
+
+	<p>For example, your html might look like this:</p>
+
+	<pre class="grid-area">
+		&#60;div class="grid-container">
+				&#60;div class="grid-item"&#62;1&#60;/div&#62;
+				&#60;div class="grid-item"&#62;2&#60;/div&#62;
+				&#60;div class="grid-item"&#62;3v/div&#62;
+				&#60;div class="grid-item"&#62;4&#60;/div&#62;
+				&#60;div class="grid-item"&#62;5&#60;/div&#62;
+				&#60;div class="grid-item item-six"&#62;>6&#60;/div&#62;
+				&#60;div class="grid-item item-seven"&#62;7&#60;/div&#62;
+				&#60;div class="grid-item"&#62;8&#60;/div&#62;
+				&#60;div class="grid-item"&#62;9&#60;/div&#62;
+				&#60;div class="grid-item"&#62;10&#60;/div&#62;
+			&#60;/div&#62;
+		</pre>
+
+	<p>and the CSS like this:</p>
+	<pre class="grid-area">
+		
+		.grid-container {
+			display: inline-grid;
+			grid-template-columns: 60px 60px 60px 60px;
+			grid-gap: 10px;
+			padding: 15px;
+			background-color: skyblue;
+		}
+		.grid-item {
+			background-color: violet;
+			border: 1px solid darkblue;
+			padding: 20px;
+			color: white;
+		}
+		.item-six {
+			grid-column: 3/5; &#60;!-- alternatively, grid-column: 3 / span 2 --&#62;
+		}
+		.item-seven {
+			grid-row: 2/4;
+			
+		}
+		</pre>
+
+	<p>
+		The <strong>grid-template-columns</strong> property is set with values for
+		each column in px, ems, auto or names (more on that in Grids
+		Advanced). <strong>Grid-gap</strong> is the shorthand to set the
+		spacing between the columns and rows. Optionally, grid row height can
+		be set using <strong>grid-template-row,</strong> or you can break
+		specifications down further using <strong>grid-column-start,
+			grid-column-end, grid-row-start, grid-row-end, grid-column-gap,
+			grid-row-gap.</strong>
+			</p>
+		<p>To illustrate, the code for the same grid might look like this:</p>
+		
+		<pre class="grid-area">
+		.grid-container {
+			display: inline-grid;
+			grid-template-columns: 60px 60px 60px 60px;
+			grid-template-rows: 60px;
+			grid-column-gap: 10px;
+			grid-row-gap: 10px;
+			padding: 15px;
+			background-color: skyblue;
+			margin: 0 35%;
+		}
+		.item-six {
+			grid-column-start: 3;
+			grid-column-end: 5;
+		}
+		.item-seven {
+			grid-row-start: 2;
+			grid-row-end: 4;
+		}
+		</pre>
+	<p>
+		Grid-items can be styled in the usual ways, but also can be sized to
+		take up more or less space within a regular grid, as seen in the above
+		example
+		<code>.item-six</code>
+		has been styled to take up two columns by identifying the left edge to
+		right edge of the two column span and
+		<code>.item-seven</code>
+		spans two rows in a similar fashion.
+	</p>
+	</main>
+</body>
+</html>

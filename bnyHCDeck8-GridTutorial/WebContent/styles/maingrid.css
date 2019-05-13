@@ -1,0 +1,152 @@
+/*  set margins and padding to 0 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+	background-color: whitesmoke;
+	color: #4d4d4d ;/*dark grey*/
+	font-family: 'Mukta', sans-serif;
+}
+
+header {
+  color: #fff;
+  background-color: navy;  /* Blue */
+  padding: 20px 0;
+  display: flex;
+  justify-content: center; 
+  width: 100%;
+}
+.logo {
+	padding: 10px;
+}
+nav {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+}
+
+ul {
+	width: 800px;
+	justify-content: flex-end;
+}
+ul, li, .link1, .link2 {
+	display: flex;
+}
+li {
+  align-content: center;
+	
+}
+
+.link1, .link2 {
+  list-style-type: none;
+  text-decoration: none;
+  padding-top: 7px;
+  font-size: 1.5em;
+  color: white;	
+  align-content: center;
+  
+}
+.link1 {
+	margin-left: auto;
+}
+.link2 {
+	margin-left: 20px;
+}
+#main-content {
+	width: 88%;
+	margin: auto;
+}
+h1 {
+	font-size: 2em;
+	padding-top: 1em;
+}
+#center-example a, #space-evenly-example a, #end-example a{
+    font-size: 1em;
+    font-weight: 600;
+    color: 4d4d4d;
+    text-decoration: none;
+}
+p {
+	font-size: 1em;
+	margin-bottom: 1.5em;
+	
+}
+code {
+	background-color: lavender;
+}
+.grid-container-inline {
+	display: inline-grid;
+	grid-template-columns: 60px 60px 60px 60px;
+	grid-gap: 10px;
+	padding: 15px;
+	background-color: skyblue;
+	margin: 0 35% 2%;
+}
+.grid-container {
+	display: grid;
+	grid-template-columns: 4(auto);
+	grid-gap: 10px;
+	padding: 15px;
+	background-color: skyblue;
+	margin-bottom: 2%;
+}
+.grid-item {
+	background-color: violet;
+	border: 1px solid darkblue;
+	padding: 20px;
+	color: white;
+}
+.item-six {
+	grid-column: 3/5;
+}
+.item-seven {
+	grid-row: 2/4;
+	
+}
+.grid-area {
+	display: grid;
+	background-color: lavender;
+	margin-bottom: 1.5em;
+}
+.grid-container1 {
+	display: inline-grid;
+	width: 400px;
+	grid-template-columns: auto auto;
+	grid-gap: 10px;
+	padding: 15px;
+	background-color: skyblue;
+	margin-bottom: 2%;
+}
+.grid-container-space {
+	display: inline-grid;
+	width: 400px;
+	grid-template-columns: auto auto;
+	grid-gap: 10px;
+	padding: 15px;
+	text-align: center;
+	background-color: skyblue;
+	margin: 2% 0;
+	justify-content: space-evenly;
+}
+.grid-container-end {
+	display: inline-grid;
+	width: 400px;
+	grid-template-columns: auto auto;
+	grid-gap: 10px;
+	padding: 15px;
+	background-color: skyblue;
+	margin: 2% 0;
+	text-align: right;
+	justify-content: end;
+}
+#bookmark4 {
+    border: 1px solid darkgray;
+    padding: 5px;
+    width: 100px;
+    text-align: center;
+}

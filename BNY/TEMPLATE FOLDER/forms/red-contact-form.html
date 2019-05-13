@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Contact Us Form HTML Day 3</title>
+		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700" rel="stylesheet">
+		<style>
+			body {
+			background-color: #000;
+			font-family: 'Source Sans Pro', sans-serif;
+			
+			}
+			form {
+			width: 400px;
+			height: 450px;
+			background-color: red;
+			margin: auto;
+			}
+			.input-text {
+			width: 355px;
+			height: 40px;
+			background-color: #cc0000;
+			margin: 2px 20px;
+			color: white;
+			text-align: left;
+			padding-left: 5px;
+			}
+			.input-text-bold{
+			font-weight: bold;
+			width: 355px;
+			height: 40px;
+			background-color: #cc0000;
+			margin: 5px 20px;
+			color: white;
+			text-align: left;
+			padding: 0 0 0 5px;
+		
+			}
+			
+			::-webkit-input-placeholder {
+			color: white;
+			}
+			input {
+			font-family: 'Source Sans Pro', sans-serif;
+			color: white;
+			border: none;
+			}
+			#helpyou {
+			background-color: #cc0000;
+			margin: 2px 20px;
+			color: white;
+			text-align: left;
+			padding-left: 5px;
+			font-family: 'Source Sans Pro', sans-serif;
+			border: none;
+			}
+			
+			#button {
+			color: red;
+			background-color: white;
+			text-align: center;
+			padding: 0 0 0 5px;
+			width: 360px;
+			height: 40px;
+			}
+			p {
+			color: white;
+			font-size: 1.5em;
+			font-weight: bold;
+			text-align: center;
+			padding-top: 10px;
+			}
+			h1 {
+			font-size: 2.5em;
+			text-align: center;
+			color: white;
+			margin: 15px;
+			}
+
+		
+		</style>
+	</head>
+	<body>
+		<header>
+				<a href="index.html">Home</a>
+		
+		</header>
+		<form>
+			<p>x</p>
+			<h1>Get in Touch</h1>
+			<input class="input-text" type="text" name="fullName" placeholder="Your name please" required/>
+			<input class="input-text" type="email" name="email" placeholder="A contact email" required/>
+			<input class="input-text-bold" type="text" name="fullName" placeholder="About a new project" required/>
+			<textarea id="helpyou" rows="5" cols="56" name="helpyou" placeholder="How can I help?" required>
+How can I help?</textarea>
+			<input id="button" class="input-text" type="button" name="button" value="Send message"/>
+		
+		
+		
+		</form>
+	
+	
+	</body>
+</html>

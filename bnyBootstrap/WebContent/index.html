@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <title>AngularJs Bootstrap Example</title>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+        <script src="js/script.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    </head>
+    <body  ng-app="myApp" ng-controller="studentController" ng-cloak>
+        <div class="modal fade" id="successModal" class="modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Success!!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>You have created/edited or deleted an item!!</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+                </div>
+            </div>
+        </div><!--end success modal -->
+                <div class="modal fade" id="errorModal" class="modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Womp, womp!!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Error, try again</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+                </div>
+            </div>
+        </div><!--end error modal -->
+        <!--nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+              <h1 style="color: white;"> Create and Edit User List  </h1>
+        </nav-->
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <!-- Brand -->
+        <a class="navbar-brand" href="#">Logo</a>
+
+        <!-- Links -->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+            <a class="nav-link" href="#">Link 1</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="#">Link 2</a>
+            </li>
+
+            <!-- Dropdown -->
+            <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                Dropdown link
+            </a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Link 1</a>
+                <a class="dropdown-item" href="#">Link 2</a>
+                <a class="dropdown-item" href="#">Link 3</a>
+            </div>
+            </li>
+        </ul>
+        </nav>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-5">
+
+
+    <!--Form-->
+                <form  name="userForm" ng-submit="createUser()">
+                    <h3>Create User</h3>
+                    <div class="form-group">
+                        <label>Name:</label>
+                            <input class="form-control" type="text" ng-model="user.name" placeholder="Maria.."  required />
+                        </div>
+                    <div class="form-group">
+                        <label>Email:</label>
+                        <div>
+                            <input class="form-control" type="email" ng-model="user.email"  placeholder="maria@perschols.org" required />
+                        </div>
+                        </div>
+                    <div>
+                        <button class="btn btn-primary" type="submit" value="submit" ng-show="submit" ng-disabled="userForm.$invalid">Submit</button>
+                        <button class="btn btn-success" type="button" value="update" ng-click="updateUser()" ng-show="update">Update</button>
+                        <button class="btn btn-danger" type="button" value="cancel" ng-click="cancelUpdate()" ng-show="cancel">Cancel</button>
+                        
+                    </div>
+                </form>
+             </div>
+     
+         <div class="col-7">      
+                <h3>User List</h3>
+                <table class="table table-striped">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Action Commands</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="user in users">
+                            <td>{{user.name}}</td>
+                            <td>{{user.email}}</td>
+                            <td>
+                                <button class="btn btn-success" ng-click="editUser(user)">Edit</button>
+                                <button class = "btn btn-info" ng-click="deleteUser(user)">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+      <!--End Form-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </body>
+</html>
+

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Form HTML1 Slide 28</title>
+	</head>
+	
+	<body>
+		<header>
+				<nav><!--include a nav to link other pages-->
+				<ul>
+					<li> 
+						<a href="index.html">home</a> 
+					</li>
+					
+				</ul>
+			
+		</header>
+		
+		<h1>Register Page</h1>
+		
+		<form>
+			<label>First Name</label>
+			<input type="text" name="firstName" required placeholder="Enter your First Name"/><br>
+			
+			<label>Last Name</label>
+			<input type="text" name="firstName" required placeholder="Enter your Last Name"/><br>
+			
+			<label>Email</label>
+			<input type="email" name="email" placeholder="  Enter your email" required/><br>
+			
+			<label>Password</label>
+			<input type="password" name="password" placeholder="  Enter your password"/><br>
+			
+			<label>Confirm Password</label>
+			<input type="password" name="password" required placeholder="Confirm your password"/><br>
+			
+			<label>Gender</label><!--radio buttons take only one value so the name is the same-->
+			<input type="radio" name="gender" value="female"/>
+			<label>Female</label>
+			<input type="radio" name="gender" value="male"/>
+			<label>Male</label><br>
+			
+			<label>DOB</label>
+			<input type="date" min="2019-01-01" name="dob" placeholder="Enter Date of Birth"/><br>
+			
+			<label>Habits</label><!-- for checkboxes, name all your variables because they can all be 
+			checked, each gets a value -->
+			<input type="checkbox" value="value1" name="sports"/><label>You like sports</label> 
+			<input type="checkbox" value="value2" name="eat"/> <label>You like to eat</label>
+			<input type="checkbox" value="value3" name="sleep" /><label>You like to sleep</label><br>
+			
+			<input type="submit" name="sub" value="Register"/>
+				
+		</form>
+
+		
+	</body>
+</html>

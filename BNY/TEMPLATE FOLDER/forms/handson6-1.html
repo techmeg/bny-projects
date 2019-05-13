@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>form Validation HTML 6 slide 16</title>
+		<link rel="stylesheet" type="text/css" href="../styles/styleHandsOn6-1.css">
+		<meta name="viewport" content="width=device-width initial-scale=1">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    </head>
+    <style> 
+*/
+
+body {
+	width: 80%;
+    font-family: helvetica;
+    margin: auto;
+}
+form {
+	width: 40%;
+	margin: auto;
+	background-color: darkblue;
+	color: white;
+	padding: 50px;
+	border-radius: 5px;
+}
+.input-container {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.material-icons {
+  padding: 10px;
+  background: white;
+  color: darkblue;
+  min-width: 50px;
+  text-align: center;
+  border: none;
+  outline: none;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  outline: none;
+  border: none;
+}
+
+.input-field:focus {
+  border: 2px solid dodgerblue;
+}
+.two-col-input {
+	width: 45%;
+	padding: 10px;
+	outline: none;
+}
+.right {
+    margin-left: 5%;
+}
+.checkbox {
+	width: 10px;
+}
+.btn {
+    padding: 10px;
+    margin-top: 10px;
+}
+
+    
+    </style>
+	<body>
+		<header>
+			<a href="../index.html" id="menu-icon">Home</a>
+			<hr>
+			
+	
+		</header>
+		<form>
+			<h1>Form with Icons</h1>
+			<label for="userName"></label>
+			<!--For modern browsers-->
+
+
+			<div class="input-container">
+			<i class="material-icons">person</i>
+				<input class="input-field" type="text" name="userName" required pattern="[A-Za-z0-9]{5,20}"placeholder="Username"/><br>
+			</div>
+			
+			<div class="input-container">
+			<i class="material-icons">vpn_key</i>
+				<input class="input-field" type="password" name="password" required pattern="a"placeholder="Choose your password"/><br>
+			</div>
+			
+			<div class="input-container">
+			<i class="material-icons">vpn_key</i>
+			<input class="input-field" type="password" name="confPassword" required pattern="[A-Za-z]{1,}[0-9]{1,}{8,20}" placeholder="Confirm your password"/><br>
+			</div>
+			
+			<div class="input-container">
+			<i class="material-icons">email</i>
+			<input class="input-field" type="email" name="email" placeholder="Email" required/><br>
+			</div>
+			
+			<div class="input-container">
+				<input class="two-col-input" type="text" name="firstName" required pattern="[A-Za-z]+" placeholder="First Name"/>
+				<input class="two-col-input right" type="text" name="lastName" required pattern="[A-Za-z]+" placeholder="Last Name"/><br>
+			</div>
+			
+			<div class="input-container">
+			<input class="input-field" list="gender" required placeholder="Gender"/><br>
+			<datalist id="gender">
+				<option value="male">
+				<option value="female">
+				<option value="other">
+			</datalist>
+			</div>
+			
+			<input class="checkbox" type="checkbox" value="value1" required name="agreement"/><label> I agree with terms and conditions.</label><br>
+			<br>
+			<input class="checkbox" type="checkbox" value="value2" required name="offers"/> <label>I want to receive news and offers.</label><br>
+
+			<input class="btn" type=submit name="submit" value="Sign Up"></input>
+		
+		</form>
+	</div>
+	</body>
+</html>

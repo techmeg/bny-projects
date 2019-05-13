@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Form 2, Slide 26</title>
+	</head>
+	
+	<body>
+		<header>
+				<nav><!--include a nav to link other pages-->
+				<ul>
+					<li> 
+						<a href="index.html">home</a> 
+					</li>
+					
+				</ul>
+			
+		</header>
+		<form>
+		
+		<label>Tell me Everything</label><br>
+		<textarea cols="50" rows="10"> </textarea><br>
+		
+		<label>Cars</label><br>
+		<input list="cars"/>
+		<datalist id="cars">
+			<option value="BMW"/>
+			<option value="Ford"/>
+			<option value="Volvo"/>
+			<option value="Skoda"/>
+			<option value="Toyota"/>
+		</datalist>
+		
+		<select multiple name="country"><!-- multiple allows more than one selection using Ctrl+Enter -->
+			<optgroup label="Europe">
+				<option value="UK"> UK </option>
+				<option value="France"> France </option>
+				<option value="Germany"> Germany </option>
+			</optgroup>
+				<optgroup label="North America">
+				<option value="US"> US </option>
+				<option value="Canada"> Canada </option>
+				<option value="Mexico"> Mexico </option>
+			</optgroup>			
+		</select><br>
+		<input type="submit" name="sub" value="Save"/>
+		</form>
+		
+	</body>
+</html>

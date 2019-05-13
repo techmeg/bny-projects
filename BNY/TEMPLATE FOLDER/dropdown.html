@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Drop Down Menu sample</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        * {
+        margin: 0;
+        padding: 0;
+        }
+        html {
+            background-color: #f9fffe;
+        }
+        body {
+        font-family: Arial, Helvetica, sans-serif;
+        }
+        .header-menu img {
+            width: 100px;
+            float: left;
+        }
+        .header-menu h1 {
+            float: left;
+            margin: 85px 0 5px;
+            color: #3d40f7;
+        }
+        .header-menu a {
+            float: right;
+            text-decoration: none;
+            padding: 20px;
+            font-size: 1.3em;
+        }
+        .login-form form {
+            overflow: hidden;
+            display: none;
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            width: 300px;
+            height: 175px;
+            background-color: #3de4f7;
+            color: grey;
+            padding: 30px 0;
+        }
+        input {
+            display: flex;
+            display: -ms-flexbox;
+            width: 50%;
+            margin: 10px auto;
+            padding: 10px;
+        }
+        .login-button {
+ 
+            width: 150px;
+            margin: 10px 63px;
+           
+        }
+        .navbar {
+        clear: both;
+        overflow: hidden;
+        background-color: #3de4f7;
+        }
+
+        .navbar a {
+        float: left;
+        font-size: 16px;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        }
+
+        .dropdown {
+        float: left;
+        overflow: hidden;
+        }
+
+        .dropdown .dropbtn {
+        font-size: 16px;  
+        border: none;
+        outline: none;
+        color: white;
+        padding: 14px 16px;
+        background-color: inherit;
+        min-width: 160px;
+        font-family: inherit;
+        margin: 0;
+        }
+
+        .navbar a:hover, .dropdown:hover .dropbtn {
+        background-color: #3df791; /* alt, dark blue #3d40f7;*/
+        }
+
+        .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+        }
+
+        .dropdown-content a {
+        float: none;
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+        }
+
+        .dropdown-content a:hover {
+        background-color: #ddd;
+        }
+
+        .dropdown:hover .dropdown-content {
+        display: block;
+        }
+
+        h2 {
+            font-size: 1.3em;
+            padding: 10px;
+        }
+        p {
+            font-size: 1em;
+            padding: 10px;
+        }
+    </style>
+  </head>
+<body>
+<header>
+	<div class="header-menu">
+		<img src="https://thumbs.dreamstime.com/x/simple-graphic-design-23145735.jpg" alt="simple-graphic-design-23145735"/>
+        <h1>Pretty Balloons</h1>
+        <a class="login" href="">Login</a>
+        <div class="login-form">
+            <form>
+                <label for="full-name"></label>
+                <input type="text" name="full-name" placeholder="Full Name">
+                <label for="email"></label>
+                <input type="email" name="email" placeholder="Enter Email">
+                <input class="login-button" type="submit" name="submit" value="Submit"
+            </form>
+        </div>
+	</div>
+</header>
+<div class="navbar">
+	<div class="menu-items">
+		<div class="dropdown">
+    		<button class="dropbtn">Who We Are 
+      		<i class="fa fa-caret-down"></i>
+    		</button>
+	   		 <div class="dropdown-content">
+		      <a href="#">Our Story</a>
+		      <a href="#">Our People</a>
+		      <a href="#">Our World</a>
+		      <a href="#">Our Future</a>
+	    	</div>
+  		</div> 
+  		
+    <div class="dropdown">
+    	<button class="dropbtn">What We Do 
+      		<i class="fa fa-caret-down"></i>
+    	</button>
+		    <div class="dropdown-content">
+		      <a href="#">Link 1</a>
+		      <a href="#">Link 2</a>
+		      <a href="#">Link 3</a>
+		    </div>
+  	</div>
+  	
+   	<div class="dropdown">
+    	<button class="dropbtn">Who We Serve 
+      		<i class="fa fa-caret-down"></i>
+    	</button>
+    	<div class="dropdown-content">
+	      <a href="#">Link 1</a>
+	      <a href="#">Link 2</a>
+	      <a href="#">Link 3</a>
+	    </div>
+  	</div> 
+    <div class="dropdown">
+    	<button class="dropbtn">Our Story 
+      		<i class="fa fa-caret-down"></i>
+    	</button>
+    	<div class="dropdown-content">
+	      <a href="#">Link 1</a>
+	      <a href="#">Link 2</a>
+	      <a href="#">Link 3</a>
+	    </div>
+ 	</div>
+   </div>
+<div>
+  <div> 
+    <a href="#home">Client Access</a>
+  	<a href="#news">Careers</a>
+  	<a href="#home">Investor Relations</a>
+  	<a href="#news">News</a>
+  	<a href="#news">Contact</a>  
+</div>
+</div>
+ </div>
+<h2>Dropdown Menu inside a Navigation Bar</h2>
+<p>Hover over the "Dropdown" link to see the dropdown menu.</p>
+
+</body>
+</html>

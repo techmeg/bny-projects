@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Grids Advanced</title>
+<link rel="stylesheet" type="text/css" href="../styles/maingrid.css" />
+<link href="https://fonts.googleapis.com/css?family=Mukta:400,600"
+	rel="stylesheet">
+</head>
+<body>
+	<header>
+		<nav class="menu">
+			<img class="logo"
+				src="https://du11hjcvx0uqb.cloudfront.net/dist/images/login/canvas-logo-a66b946d8d.svg"
+				id="logo" alt="Canvas logo" />
+			<ul>
+				<li><a class="link1" href="../index.html">Home</a></li>
+				<li><a class="link2" href="./grid101.html">Grids 101</a></li>
+			</ul>
+		</nav>
+	</header>
+	<main id="main-content">
+	<h1>Grid Content</h1>
+	<p>
+		If you are familiar with the commands for controlling content in flex,
+		the grid commands will look familiar. The <strong>justify-content</strong>
+		and <strong>align-content</strong> properties are back, but with
+		slightly different values. <a href="#center-example">Center,</a> <strong>space-around</strong> and <strong>space-between</strong>
+		are the same as flex, but content controls include <strong>start,</strong>
+			<a href="#end-example">end,</a> and the real outlier,</strong> ><a href="#space-evenly-example">space-evenly</a>.
+	</p>
+	<p>
+		Note: for the
+		<code>justify-content</code>
+		property to work, the grid's total width cannot exceed the size of the
+		container.
+	</p>
+	<h2 id="center-example">Example: justify-content: center</h2>
+	<p>Let's look at how these properties work.</p>
+
+	<div class="grid-container1">
+		<div class="grid-item">1</div>
+		<div class="grid-item">2</div>
+		<div class="grid-item">3</div>
+		<div class="grid-item">4</div>
+	</div>
+
+	<p>
+		The grid above does not include an expressed
+		<code>justify-content</code>
+		property; the default is to center the blocks within the grid. No
+		alignment was applied to the content of the grid items so they are
+		defaulting to the left alignment.
+	</p>
+	
+		<h2 id="space-evenly-example">Example: justify-content: space-evenly</h2>
+	
+	<div class="grid-container-space">
+		<div class="grid-item">This grid is styled with space-evenly.</div>
+		<div class="grid-item">2</div>
+		<div class="grid-item">3</div>
+		<div class="grid-item">4</div>
+	</div>
+	<p>
+		This second grid is defined by
+		<code>justify-content: space-evenly;</code>
+		and the code looks like this:
+	</p>
+	<pre class="grid-area">
+	.grid-container-space {
+		display: inline-grid;
+		width: 400px;
+		grid-template-columns: auto auto;
+		grid-gap: 10px;
+		padding: 15px;
+		text-align: center;
+		background-color: skyblue;
+		margin-bottom: 2%;
+		justify-content: space-evenly;
+	}
+	</pre>
+	<p>
+		The text within the above grid has been styled using
+		<code>text-align: center;</code>
+		to center it within the grid box.
+	</p>
+			<h2><a id="end-example">Example: justify-content: end</a></h2>
+	
+	<div class="grid-container-end">
+		<div class="grid-item">This grid is styled with end.</div>
+		<div class="grid-item">2</div>
+		<div class="grid-item">3</div>
+		<div class="grid-item">4</div>
+	</div>
+	<p>
+		This last grid is defined by
+		<code>justify-content: end;</code> and <code>text-align: right;</code>
+		and the code looks like this:
+	</p>
+
+	<pre class="grid-area">
+	.grid-container-end {
+		display: inline-grid;
+		width: 400px;
+		grid-template-columns: auto auto;
+		grid-gap: 10px;
+		padding: 15px;
+		background-color: skyblue;
+		margin-bottom: 2%;
+		text-align: right;
+		justify-content: end;
+	}
+	</pre>
+	<a href="#main-content"> Back to Top</a>
+	 </main>
+</body>
+</html>

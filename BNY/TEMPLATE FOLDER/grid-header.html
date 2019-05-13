@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Grid Header & Footer</title>
+<link rel="stylesheet" type="text/css" href="./styles/maingrid.css" />
+<link href="https://fonts.googleapis.com/css?family=Mukta:400,600"
+	rel="stylesheet">
+    <style>
+    /*  set margins and padding to 0 */
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+    html {
+        scroll-behavior: smooth;
+    }
+    body {
+        background-color: whitesmoke;
+        color: #4d4d4d ;/*dark grey*/
+        font-family: 'Mukta', sans-serif;
+    }
+
+    header {
+    color: #fff;
+    background-color: navy;  /* Blue */
+    padding: 20px 0;
+    display: flex;
+    justify-content: center; 
+    width: 100%;
+    }
+    .logo {
+        padding: 10px;
+    }
+    nav {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    }
+
+    ul {
+        width: 800px;
+        justify-content: flex-end;
+    }
+    ul, li, .link1, .link2 {
+        display: flex;
+    }
+    li {
+    align-content: center;
+        
+    }
+
+    .link1, .link2 {
+    list-style-type: none;
+    text-decoration: none;
+    padding-top: 7px;
+    font-size: 1.5em;
+    color: white;	
+    align-content: center;
+    
+    }
+    .link1 {
+        margin-left: auto;
+    }
+    .link2 {
+        margin-left: 20px;
+    }
+    #main-content {
+        width: 88%;
+        margin: auto;
+    }
+    .footer img {
+    width: 66px;
+    padding: 10px;
+    float: left;
+}
+hr {
+    border-top: 2px solid navy;
+
+}
+.footer {
+    height: 75px;
+}
+.footer p{
+    float: left;
+}
+
+
+    </style>
+</head>
+<body>
+	<header>
+		<nav>
+			<img class="logo"
+				src="https://du11hjcvx0uqb.cloudfront.net/dist/images/login/canvas-logo-a66b946d8d.svg"
+				id="logo" alt="Canvas logo" />
+			<ul>
+				<li><a class="link1" href="./views/grid101.html">Grids 101</a></li>
+				<li><a class="link2" href="./views/gridAdvanced.html">Grid
+						Content</a></li>
+
+			</ul>
+		</nav>
+    </header>
+    <main></main>
+    <footer class="footer">
+         <img src="./images/blue-star-block.jpg" alt="Blue star quilt"/>
+         <p class="footer">Copyright 2019,  Meg Parsons</p>
+    </footer>
