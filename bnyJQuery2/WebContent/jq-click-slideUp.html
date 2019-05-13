@@ -1,0 +1,27 @@
+	<html lang="en">
+	<head>
+	<meta charset="utf-8">
+	<title>Executing a Function on Click Event in jQuery</title>
+    <script src="js/jquery-3.3.1.js"></script>
+	<style type="text/css">
+	    p{
+	        padding: 20px;
+	        font: 20px sans-serif;
+	        background: khaki;
+	    }
+	</style>
+	<script type="text/javascript">
+	$(document).ready(function(){
+	    $("p").click(function(){
+            $(this).slideUp();
+        });
+	});
+	</script>
+	</head>
+	<body>
+       
+	    <p>Click on me(1) and I'll disappear.</p>
+	    <p>Click on me (2) and I'll disappear.</p>
+	    <p>Click on me (3) and I'll disappear.</p>
+	</body>
+	</html>

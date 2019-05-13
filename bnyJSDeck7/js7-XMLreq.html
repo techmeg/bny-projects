@@ -1,0 +1,28 @@
+<html>
+ <head></head>
+ <body>
+  <button type = "button" id ="button">Create XMLHttpRequest Object</button>
+<script>
+    var button = document.getElementById("button");
+    button.onclick = CreatedXMLHttpRequest; //A client event occurs.
+    function CreatedXMLHttpRequest() {
+     var xmlhttprequest; // The variable that makes Ajax possible!
+     try {
+      xmlhttprequest = new XMLHttpRequest(); // Opera 8.0+, Firefox, Safari
+     } catch (e) { // catch prevents user from seeing error screen
+     try {// Internet Explorer Browsers
+      xmlhttprequest = new ActiveXObject("Msxml2.XMLHTTP");
+     } catch (e) {
+     try {
+       xmlhttprequest = new ActiveXObject("Microsoft.XMLHTTP");
+     } catch (e) {
+       alert("Your browser outdated, please update or use a different  browser");
+       return false;}
+     }
+    }
+     console.log(xmlhttprequest);
+     return xmlhttprequest;
+    }
+  </script>
+ </body>
+</html>

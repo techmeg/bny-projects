@@ -1,0 +1,40 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Arithmetic</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <script type="text/javascript">
+            var userInput = "";
+            var operand = "";
+            var nums = "";
+            const SEPARATOR = "|"
+            
+            userInput = prompt("Enter an Arithmetic Expression:");
+            console.log(userInput);
+            for(let i=0; i<userInput.length; i++){
+                if (userInput[i]>= '0' && userInput[i] <= '9') {
+                    while(i<userInput.length
+                    && userInput[i] >= '0'
+                    && userInput[i] <= '9'){
+                        nums += userInput[i];
+                        i++;
+                    }
+                    nums += SEPARATOR;
+                    i--;
+                }else if(userInput[i] == "+" ||
+                    userInput[i] == "*" ||
+                    userInput[i] == "-" ||
+                    userInput[i] == "^" ) {
+                operand += userInput[i] + SEPARATOR;
+                }
+            }
+            console.log("numbers", nums);
+            console.log("operands", operand);
+        </script>
+        
+    </body>
+</html>

@@ -1,0 +1,25 @@
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+	<meta charset="utf-8">
+	<title>jQuery Select Element by name, ID or class</title>
+    <script src="js/jquery-3.3.1.js"></script>
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+		<script type="text/javascript">
+	$(document).ready(function()
+	{
+        $("h2").css("background", "yellow"); //selects by ID
+         $("#mark").css("border", "2px solid blue"); 
+         $(".mark").css("font-size", "24px") //selects by class
+       
+	 }
+	);
+	</script> 
+	</head>
+	<body>
+        <h2>This is a header. </h2>
+        <p id="mark">This is a paragraph. </p>
+	    <p class= "mark">This is one more paragraph. </p>
+	    <p><strong>Note:</strong> The value of the id attribute must be unique in an HTML document. </p>
+	</body>
+	</html>                              

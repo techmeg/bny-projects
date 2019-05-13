@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>deck 2- objects></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+    <script>
+        var book = {};
+        book;
+
+        var obj = Object.create({name: "John", age: 26, hair: "brown"}); // slide 32
+
+      //  delete obj.age; -- this doesn't quite delete when used with object.create
+     //   console.log(obj.age);
+     
+     for (var i in obj){      //slide 34 -- iterating objects
+         console.log(i);   //prints the key at position i
+         console.log(obj[i]); //prints the value at position i
+     }
+     // -------------- array join ---------------
+    var array = [3, "bed", "frames"]; //slide 35
+    var one = array.join();
+        console.log(one);
+
+    var two = array.join(" ");
+    console.log(two);
+
+    var three = array.join ("");
+    console.log(three);
+
+    var four = new Array(10);
+    console.log(four);
+
+    var five = four.join('-');
+    console.log(five);
+//---------------array reverse, reverse join--------    
+    array.reverse();
+    console.log(array);
+
+    var newarr = array.reverse().join();
+    console.log(newarr);
+// -----------------------array split --------------------------
+    var name = "Mary Jo Kopekny"
+    var newname = name.split(" ");
+    console.log(name);
+    console.log(newname);
+
+    var name1 = name.split(",");
+    console.log(name1);
+
+    var name2 = name.split("");
+    console.log(name2);
+
+    var random = "sldkjsldkj123,lsdkjfslkdfj123,lsdkjfslkf123sldkfjsdlk";
+    var routing = random.split("123");
+    console.log(routing); // splits the file at marker "123" and deletes "123"
+//------------------array sort -------------------
+    newname.sort();
+    console.log(newname);//sorts alphabetically
+
+    var numbers = [1,4,2,8,5,9];
+    numbers.sort(function(a,b) { //use function to sort numerically
+        return a-b;
+    });
+    console.log(numbers);
+
+    numbers.sort(function(a,b) {return b-a}); //revers numerically
+    console.log(numbers);
+
+    //------------- array.slice---------------------
+    var colors = ["blue", "red", "green", "yellow", "taupe"];
+    console.log(colors);
+    var slice = colors.slice(0,2);
+    console.log(slice);
+
+    var slice1 = colors.slice(3, 5);
+    console.log(slice1);
+
+    var slice2 = colors.slice(1,-1); //start at pos 1, delete the end pos
+    console.log(slice2);
+
+    //--------------- array .splice -------------------
+    //do at home
+
+    //------------------ for each --------------------
+ //syntax forEach(function callback (current value [index, [array]]){code happens;});
+    var data = [1,2,3,4,5];   //an array
+    var sum = 0;
+    data.forEach(function(value){sum += value;}); //add each value to sum using anonymous function
+    console.log(sum); //total is 15
+
+    console.log(data);
+    data.forEach(function(v, i, a){a[i]=v+1}); //increment each value in the array
+    console.log(data);
+
+    //------------------ array.map----------------------------
+//syntax map(function callback (current value [index, [array]]){code happens; must include 'return' somewhere});
+//map returns a new array based on passing orig array through a function
+
+    var array1 = [1, 4, 9, 16];
+
+// pass a function to map
+const map1 = array1.map(function(x){return x*x});
+console.log(map1);
+
+const map2 = array1.map(function(x){return x*1.1}); //increase prices 10%
+console.log(map2);
+
+//----------------array filter-----------------------
+var a=[5,4,3,2,1];
+console.log(a);
+
+var small=a.filter(function(x){return x<3});
+console.log(small);
+
+var everyother = a.filter(function(x,i){return i%2==0});
+console.log(everyother);
+
+var prices = map2;
+console.log(prices);
+
+var lowprice = prices.filter(function(x){return x<10});
+console.log(lowprice);
+
+var hilow = prices.filter(function(x){return ((x<5) || (x>10))});
+console.log(hilow);
+
+        </script>
+    
+</body>
+</html>

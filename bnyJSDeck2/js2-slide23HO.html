@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>JS Deck 2 slide 23 Hands On</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+    <script>
+/*
+*Write a program that asks the user to input two integers L and U (representing 
+the lower and upper limits of the interval), and print out all integers in the 
+range L<=i<U separated by spaces. Notice that we include the lower limit, but 
+exclude the upper limit.
+*/  
+
+        var numstring = "";                                      //declare an array
+        var lower = prompt("Enter a number");               //ask for lower number
+        while (isNaN(lower)){
+            lower = prompt('Enter a number, please');        //check if it's a number
+        }
+        var upper = prompt("Enter a number higher than the first number");//ask for the higher number
+        while (isNaN(upper) || (upper<=lower)){                 //check if it's a number and higher than 1st number
+            upper = prompt ("Enter a number higher than the first number");
+        }                                                    
+        for (i=lower; i< upper; i++){
+            numstring += i + " ";                         //add numbers and spaces to a string
+            
+        }
+        console.log("lower: " + lower);             //print range 
+        console.log("upper: " + upper);
+        console.log("range: " + numstring);
+
+// does not protect against non-integers being accepted 
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,23 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>jQuery Document Ready Demo</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="js/jquery-3.3.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+    //        var string = $("p:first").text();
+    //        $("p:last").text(string);
+            $("p").text("Hello World!"); //adds only text -- tags will appear as text
+            $("p").after("<h2>Headline text here</h2>");
+        });
+
+        //.text() with empty () will render the text called, in this case "Not loaded yet"
+        //.after() can add text, tags and function
+    </script>
+</head>
+<body>
+    <p>Not loaded yet.</p>
+    <!--<p></p>-->
+</body>
+</html>

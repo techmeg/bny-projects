@@ -1,0 +1,29 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+    <script type="text/javascript">
+     var isPrime = true;
+    var num = prompt("Enter a Prime number: ")
+    for(var i=2; i<num; i++){
+        if(num%i===0){
+         isPrime=false;
+         break;
+    }
+}
+if(isPrime) {
+    console.log(num, " is a prime number");
+}else{
+    console.log(num, " is not a prime number");
+}   
+    </script>
+    
+</body>
+</html>

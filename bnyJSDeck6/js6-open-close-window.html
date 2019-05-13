@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+  <p>Click the buttons below</p>
+  <a href="js6-screen.html">Next</a>
+  <button type="button" onclick="newWindow()">Open New Window</button>
+  <button type="button" onclick="closeWindow()"> Close Window!</button>
+  <script>
+    var myWindow;
+    function newWindow() {
+ myWindow = window.open("https://perscholas.org/", "perscholas", "width=400, height=200, left=250px, top=250px, resizable=yes, scrollbars=yes, location=yes");
+ myWindow.focus();
+  }
+ function closeWindow(){
+ myWindow.close();
+ }
+    </script>
+</body>
+</html>

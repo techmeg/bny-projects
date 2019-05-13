@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Useful Functions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+    <script>
+//--------------isNumber function-------------------
+ /*   var userInput = prompt("enter a number")
+
+      function isNumber(string){
+        if (isNaN(userInput)){
+            var result = "false";
+            console.log(result);
+        }else {
+            result = "true"
+            console.log(result);
+        }
+      }
+    
+isNumber(userInput); */
+
+//----------------convertToNumber--------------------------------
+/*
+var userInput = prompt("enter a string")
+
+function convertToNumber(string){
+    var num = parseInt(userInput);
+    console.log(num);
+}
+convertToNumber(userInput);*/
+
+//-------------------smaller function------------------
+
+
+//get number as string and split into array of two elements
+/*  do {
+      var userInput = prompt("Enter two integers separated by a space");
+      var userArray = userInput.split(" ");
+          console.log(userArray);
+
+    } //test to see if each is a number
+    while (isNaN(userArray[0]) || (isNaN(userArray[1])));
+
+function smaller(array){ //print the smallest number in an array
+    console.log(Math.min(...array));
+    }
+smaller(userArray);  
+//note: fails if more than two entries are made
+*/
+//-------------------smaller of three---------------------
+  do {
+      var userInput = prompt("Enter three integers separated by a space");
+      var userArray = userInput.split(" ");
+          console.log(userArray);
+
+    } //test to see if each is a number
+    while (isNaN(userArray[0]) || (isNaN(userArray[1]) || (isNaN(userArray[2]))));
+
+    var smaller = Number(userArray[0]);
+    if (Number(userArray[1])< smaller){
+        smaller = Number(userArray[1]);
+    }
+    if (Number(userArray[2])<smaller){
+        smaller=Number(userArray[2]);
+    }
+    console.log(smaller);
+
+    </script>
+    
+</body>
+</html>

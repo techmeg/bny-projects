@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>JS Deck 2, slide 24</title>
+
+</head>
+<body>
+    <script>
+ //create array of 10 items with a value of 1
+     var myData=[];
+     for(i=0; i<10; i++){
+         myData[i]=1;
+     }
+  // ask user for an index and new value       
+    do {
+        console.log(myData);
+        var i = prompt ("Enter a whole number between 1 and 10");
+        var v = prompt ("Enter a new value");
+        if(i>=0 && i<10){
+            //insert new value at index number
+             myData[i]= v;
+             console.log("Input index: " + i); //print index and value
+             console.log("Input value: " + v);
+        
+          }  else{
+             console.log("Index out of range. Exit!"); // if index too high, exit
+        }
+    }while (i>=0 && i<10);
+
+    
+        
+    </script>
+    
+</body>
+</html>

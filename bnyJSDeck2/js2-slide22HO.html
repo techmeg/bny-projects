@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>JS Deck 2 Slide 22 hands on</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+    <!-- Write a program which asks the user to input an integer in the range 0<n<100. 
+If the number is out of range, ask again until you get a number in range.
+Square the valid value and output. -->
+    <script>
+                                        // prompt for input
+        var num = prompt("enter a value between 0 and 100");
+                                        // check if number is in the range
+        while (num<1 || num > 99){
+                                        //if it is not in range, continue to prompt
+         num=prompt("enter a value greater than zero and less than 100");                
+                                        //print the number squared
+        } 
+            console.log((num*num));
+        </script>
+</body>
+</html>

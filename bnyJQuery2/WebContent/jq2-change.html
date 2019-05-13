@@ -1,0 +1,33 @@
+	<html lang="en">
+	<head>
+	<meta charset="utf-8">
+	<title>Executing a Function on Change Event in jQuery</title>
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>.	<script type="text/javascript">
+	$(document).ready(function(){
+	    $("select").change(function(){
+            var selectedOption = $(this).find(":selected").val();
+            alert("You have selected - " + selectedOption);
+        });
+        	$("input").change(function(){
+            var selectedOption = $(this).find("input[type=checkbox]:checked").val(); //this not working, why??
+            alert("You have selected - " + selectedOption);
+	    });
+	});
+	</script>
+	</head>
+	<body>
+	    <form>
+	        <label>City:</label>
+	        <select>
+                <option selected="selected">London</option>
+	            <option>Paris</option>
+	            <option>New York</option>
+            </select>
+			<input type="checkbox" value="value1" name="sports"/><label>You like sports</label> 
+			<input type="checkbox" value="value2" name="eat"/> <label>You like to eat</label>
+			<input type="checkbox" value="value3" name="sleep" /><label>You like to sleep</label><br>
+        </form>		
+        
+        <p><strong>Note:</strong> Select any value from the dropdown select and see the result.</p>
+	</body>
+	</html>        

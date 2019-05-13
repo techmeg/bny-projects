@@ -1,0 +1,52 @@
+	<html lang="en">
+        	<head>
+	<meta charset="utf-8">
+    <title>make a table</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+
+    <style>
+    table{
+        border-collapse: collapse;
+    }
+    table, th, td {
+        border: 1px solid black;
+
+    }
+    th {
+        background-color: bisque;
+    }
+    th, td {
+        padding: 10px;
+        color: red;
+        width: 100px;
+        text-align: center;
+    }
+    </style>
+
+    <script type="text/javascript">
+	$(document).ready(function(){
+        var arrayVendors = []; // generate an array of bny vendor names
+            for(i=0; i<=25; i++){
+            arrayVendors[i] = "BNYvendor" + i;
+            }
+
+        for(i=0; i<=25; i++){ //add rows to table with ID and vendor names
+            $(".table").append("<tr><td>" + i + "</td><td>" + arrayVendors[i] + "</td></tr>");
+        }
+	});
+    </script>
+
+	</head>
+    <body>
+    <div class="table">
+        <table>
+            <tr>
+                <th>ID</th>
+                <th> Name</th>
+            </tr>
+ 
+        </table>
+    </div>
+
+	</body>
+	</html>        

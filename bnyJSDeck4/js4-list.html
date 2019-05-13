@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+    <script>
+var LinkedList = function(){
+        this.head = null;
+        this.size = 0;
+        this.addToHead = function(v) {
+            var node = new Node(v);
+            if(this.head === null) { //if list is empty
+                this.head = node;
+                this.size++;
+            }else {                  //if the list is not empty
+                node.next = this.head;
+                this.head = node;
+                this.size++;
+            }
+            return;
+        }
+/*        this.deleteItem = function(v){
+
+        }*/
+        this.addtoTail = function(v){
+        var node = new Node(v);
+            if(this.head === null) {
+                this.head = node;
+                this.size++;
+                return;
+            }
+            var current = this.head;
+            while(current.next != null){
+                current = current.next;
+            }
+            current.next = node;
+            this.size++;
+        }    
+        this.addtoSecond = function(v) {
+            var node=new Node(v);
+            if(this.head === null){ // if list is empty
+            this.head = node;
+            }else {
+                node.next = this.head.next;
+                this.head.next = node;
+            }
+            this.size++;
+        }
+            this.insertAtIndex = function(index, v) {
+            var node = new Node(v);
+            if(index < 0 || index > this.size) {
+                delete node;
+                return;
+            }
+            if(this.head === null) {
+                this.head = node;
+                this.size++;
+                return;
+            }
+            if(index === 0){
+                delete node;
+                this.addToHead(v);
+                return;
+            }
+            if (index===this.size) {
+                delete node;
+                this.addtoTail(v);
+                return;
+            }
+            var i = 0;
+            var current = this.head;
+            while(i<index-1) {
+                current = current.next;
+                i++;
+            }
+            node.next = current.next;
+            current.next = node;
+            this.size++;
+        }
+        this.printList = function () {
+            for (i=0; i<this.size; i++){
+                if(i===0){
+            console.log("Index: " + i + "-> value: " + this.head.value);
+                }else {
+            console.log("Index: " + i + "-> value: " + this.head.next.value);
+                }
+            }
+        }
+}
+
+var Node = function(v) {
+    this.value = v;
+    this.next = null;
+}
+var list = new LinkedList();
+list.addToHead(10);
+console.log(list);
+list.addToHead(20);
+list.addToHead(30);
+list.addToHead(40);
+list.addToHead(50);
+list.addtoSecond(15);
+list.addtoTail(105);
+//console.log(list.head.next.value);
+list.insertAtIndex(0,25);
+list.insertAtIndex(1,11);
+list.printList();
+</script>
+    
+</body>
+</html>

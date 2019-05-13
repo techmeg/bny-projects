@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+    <script>
+        const customeErr = new Error("Custom Error made by the developer");
+        var someFunc = function(a) {
+            if(a === 4){
+                throw customeErr;
+            }
+        }
+
+        try{
+            someFunc(4);
+        }catch(e) {
+            console.log("Logging Customer Error");
+            console.log(e);
+        }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+    <script>
+    //create a model/prototype for a book
+
+var Book = function(title, authorFullName, yearPublication){
+    this.title = title;
+    this.authorFullName = authorFullName;
+    this.yearPublication = yearPublication;
+    this.type = "",
+    this.description = "";
+    this.edition = 0;
+    this.printBookObj = function(){
+        console.log(this);
+    }
+    this.printBookKim = function(){
+        for(var prop in this){
+            console.log(prop, " = ", this[prop]);
+    }
+    }   
+    this.printLabel = function(num) {
+        var i=0;
+        while (i<=num){
+        console.log(" --------------------------------------------------\n", 
+                    "**", "       Title: ", this.title,"\n",
+                    "**", "      Author: ", this.authorFullName, "\n",
+                    "**", "        Year: ", this.yearPublication, "\n" ,
+                    "**", " Description: ", this.description, "\n",
+        "--------------------------------------------------")
+        i++;
+    }}
+}
+var odyssey = new Book("The Odyssey", "Homer" ,  1985, "classic", "An epic Greek poem about the Trojan War", 25);
+var bible = new Book ("The Bible", "various", 1980, "religious", "Scipture of the Christian Church", 23);
+
+console.log(odyssey);
+//odyssey.printBookObj();
+//odyssey.printBookKim();
+console.log("--------------------------------------\n");
+//for(label=1; label<=10; label++){
+ //   console.log(label);
+//    odyssey.printLabel(10);
+//}
+var book1 = new Book("aaaa", "bbbbb", 2018);
+var book2 = new Book("cccc", "ddddd", 2019);
+book1.totalpage = 999; //adding property, but only to this instance of Book
+Book.prototype.cover = "hard cover"; //add property to prototype on the fly
+console.log(book1);
+console.log(book2);
+console.log("book1 cover: ", book1.cover);
+
+
+
+
+
+</script>
+</body>
+</html>
