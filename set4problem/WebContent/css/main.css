@@ -1,0 +1,534 @@
+/*! HTML5 Boilerplate v6.1.0 | MIT License | https://html5boilerplate.com/ */
+
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+html {
+    color: #222;
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * Vendor-prefixed and regular ::selection selectors cannot be combined:
+ * https://stackoverflow.com/a/16982510/7133471
+ *
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+    vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+    resize: vertical;
+}
+
+/* ==========================================================================
+   Browser Upgrade Prompt
+   ========================================================================== */
+
+.browserupgrade {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+/*--------------General styling-------------------------------*/
+/* make background black */
+   html {
+     background-color: #000000;
+     font-family: helvetica;
+     width: 100%;
+   }
+
+/* make resume dark grey, light type, centered on background*/
+   body {
+     max-width: 1000px;
+     margin: auto;
+     width: 80%;
+     background-color: #333333;
+     color: #f2f2f2;
+   }
+/* add left & right margin */
+   .main_container {
+     padding: 0;
+     margin: 0 30px;
+   }
+/* add some margin to the resume top */
+    header {
+     height: 50px;
+    }
+
+    #top-container {
+      padding-top: 10px;
+    }
+    #img-container {
+      float: left;
+ }
+ /* position main headline */
+ h1 {
+   font-size: 2em;
+   line-height: 1.2em;
+   margin: 0 0 10px 0;
+   padding-left: 20px;
+   text-transform: uppercase;
+   float: left;
+ }
+ /* make subheadline blue */
+ h1 span {
+   color: dodgerblue;
+   font-size: .75em;
+ }
+
+ /* blue type in general info*/
+ table span {
+   color: dodgerblue;
+ }
+ /* keep gen info table together and right align first "column" */
+   #gen-info-container {
+     padding-left: 240px;
+     float: left;
+   }
+   .right-align {
+   text-align: right;
+   font-weight: 400;
+   float: left;
+   }
+  .float-right {
+     float: right;
+   }
+   #top-container p {
+     clear: both;
+     padding: 30px 0;
+   }
+   aside {
+     width: 35%;
+     float: right;
+   }
+
+/* set color values*/
+   *.dimgrey {
+   background-color: dimgrey;
+   }
+   *.dodgerblue {
+   background-color: dodgerblue;
+   }
+   *.darkcyan {
+   background-color: darkcyan;
+   }
+   *.chartreuse {
+   background-color: lightgreen;
+   }
+   *.yellow {
+   background-color: gold;
+   }
+   *.red {
+   background-color: red;
+   }
+
+
+/*style progress bars*/
+   .progress-90 {
+   width: 90%;
+   display: block;
+   margin-right: 30px;
+   margin-bottom: 5px;
+   padding-left: 5px;
+   text-align: right;
+   }
+   .progress-80 {
+   width: 80%;
+   display: block;
+   margin-right: 30px;
+   margin-bottom: 5px;
+   padding-left: 5px;
+   text-align: right;
+   }
+   .progress-93 {
+   width: 92%;
+   display: block;
+   margin-right: 30px;
+   margin-bottom: 5px;
+   padding-left: 5px;
+   text-align: right;
+   }
+   .progress-70 {
+   width: 70%;
+   display: block;
+   margin-right: 30px;
+   margin-bottom: 5px;
+   padding-left: 5px;
+   text-align: right;
+   }
+   /* style list dots*/
+   ul {
+   padding-left: 20px;
+   }
+   li {
+   list-style-type: square;
+   }
+   .coursename {
+   color: #f2f2f2;
+   font-weight: 400;
+   }
+   /* style filled dots*/
+   .dot {
+   height: 15px;
+   width: 15px;
+   background-color: #bbbbbb00;
+   border: 1px solid lightgrey;
+   border-radius: 50%;
+   display: inline-block;
+   }
+   .bluedot {
+     height: 15px;
+   width: 15px;
+   background-color: dodgerblue;
+   border: 1px solid lightgrey;
+   border-radius: 50%;
+   display: inline-block;
+   }
+
+   .greendot {
+     height: 15px;
+   width: 15px;
+   background-color: lightgreen;
+   border: 1px solid lightgrey;
+   border-radius: 50%;
+   display: inline-block;
+   }
+   .yellowdot {
+     height: 15px;
+   width: 15px;
+   background-color: gold;
+   border: 1px solid lightgrey;
+   border-radius: 50%;
+   display: inline-block;
+   }
+/* style employment & education area */
+
+#employment {
+  width: 60%;
+  padding-top: 20px;
+}
+/** styling the Employment and Education headings**/
+.icon-box {
+  width: 30px;
+  height: 30px;
+  font-size: 1.25em;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 1.25em;
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+h3 {
+  font-size: 1.1em;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+/* line up the employer/school with the dates of service*/
+#employment h3 {
+  display: inline-block;
+  margin: 10px 0 0;
+}
+/* moving dates to the right */
+
+ .date {
+  display: inline-block;
+  margin: 10px 0 0;
+  float: right;
+  }
+
+h4 {
+margin-top: 0;
+margin-bottom: 5px;
+font-size: 1em;
+font-weight: normal;
+}
+
+
+   /* add margin to the bottom*/
+   footer {
+   height: 40px;
+   }
+
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/*
+ * Hide visually and from screen readers
+ */
+
+.hidden {
+    display: none !important;
+}
+
+/*
+ * Hide only visually, but have it available for screen readers:
+ * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ *
+ * 1. For long content, line feeds are not interpreted as spaces and small width
+ *    causes content to wrap 1 word per line:
+ *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
+ */
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    white-space: nowrap; /* 1 */
+}
+
+/*
+ * Extends the .visuallyhidden class to allow the element
+ * to be focusable when navigated to via the keyboard:
+ * https://www.drupal.org/node/897638
+ */
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+    white-space: inherit;
+}
+
+/*
+ * Hide visually and from screen readers, but maintain layout
+ */
+
+.invisible {
+    visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 768px) {
+    /*========== tablet styles here ===================== */
+
+
+/**==================== Desktop Styles================================**/
+@media only screen and (min-width: 940px) {
+  /* arrange header section*/
+
+  #img {
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    margin: 0;
+    }
+    .left-table {
+      padding-left: 6%;
+    }
+  /*.meg {
+  float: left;
+  }
+  .table {
+  width: 35%;
+  float: right;
+  }
+
+
+  /* style headers
+  h1 {
+    font-size: 2.2em;
+    padding: 0 10px;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-left: 10px;
+    width: 50%;
+  }*/
+
+
+
+
+  /*container for skills*/
+/*  aside.skills {
+  width: 35%;
+  float: right;
+  }*/
+  /* container for employment & education*/
+/*  .two-col {
+  margin:0 50px 0 30px;
+  width: 55%
+  }*/
+
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid the additional HTTP request:
+   https://www.phpied.com/delay-loading-your-print-css/
+   ========================================================================== */
+
+@media print {
+    *,
+    *:before,
+    *:after {
+        background: transparent !important;
+        color: #000 !important; /* Black prints faster */
+        -webkit-box-shadow: none !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    /*
+     * Don't show links that are fragment identifiers,
+     * or use the `javascript:` pseudo protocol
+     */
+
+    a[href^="#"]:after,
+    a[href^="javascript:"]:after {
+        content: "";
+    }
+
+    pre {
+        white-space: pre-wrap !important;
+    }
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    /*
+     * Printing Tables:
+     * http://css-discuss.incutio.com/wiki/Printing_Tables
+     */
+
+    thead {
+        display: table-header-group;
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}
