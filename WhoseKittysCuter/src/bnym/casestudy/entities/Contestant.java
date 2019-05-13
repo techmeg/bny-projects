@@ -33,9 +33,15 @@ public class Contestant {
 
 	}
 
+	@Override
+	public String toString() {
+		return "Contestant [name=" + name + ", email=" + email + ", cat=" + cat + "]";
+	}
+
 	public Contestant () {
 		
 	}
+	
 
 	public String getName() {
 		return name;

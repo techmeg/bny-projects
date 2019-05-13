@@ -64,11 +64,11 @@
 							<div class="pix"
 								style="background-color: rosybrown; background-position: center background-repeat: no-repeat; background-size: cover)">
 								<img class="pix" style="object-fit: cover; width: 100%;"
-									src="./images/${cat.photo}" />
+									src="./images/${currentContest.catList.photo}" />
 							</div>
-							<h5 class="mt-1">${currentContest.cat.name }</h5>
-							<p class="blurb">${currentContest.cat.blurb }</p>
-							<p class="votes">${currentContest.cat.numVotes}&nbsp;Votes</p>
+							<h5 class="mt-1">${currentContest.catList.cName }</h5>
+							<p class="blurb">${currentContest.catList.blurb }</p>
+							<p class="votes">${currentContest.catList.numVotes}&nbsp;Votes</p>
 							<input type="button" class="pickme" name="pickme"
 								onclick="window.location.href='${pageContext.request.contextPath}/voterRegistration/${cat.id }';"
 								value="Pick Me!"></input>
@@ -147,7 +147,7 @@
 
 								<!----------- Form to Register  --------->
 								<form action="/CaseStudy/registrationsuccess" method="POST"
-									enctype="multipart/form-data">
+									enctype="multipart/form-data" modelAttribute="contest">
 									<div class="form-group">
 										<label for="inputName" name="name">Name</label> <input
 											type="text" name="name" class="form-control" id="inputName"
@@ -176,7 +176,6 @@
 										<textarea class="form-control" name="cBlurb" rows="3"
 											cols="80" maxlength="150"></textarea>
 									</div>
-									<input type="hidden" name="contestId" value="${contestId }" />
 
 									<button type="submit" class="btn btn-primary">Register</button>
 								</form>

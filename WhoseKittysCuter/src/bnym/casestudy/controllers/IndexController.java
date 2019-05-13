@@ -43,6 +43,8 @@ public class IndexController {
 				if (c.getStatus().equals("current")) {
 					currentContest = c;
 					mav.addObject("currentContest", currentContest);
+//					List <Cat> catList = catservices.getAllCats();
+//					mav.addObject("catList", catList);
 				}
 				else {
 					System.out.println("NO CURRENT CONTEST");
@@ -55,7 +57,14 @@ public class IndexController {
 			for (Contest c : contestList) {
 				if (c.getStatus().equals("next")) {
 					nextContest = c;
+					Cat cat = new Cat();
+					cat.setContest(nextContest);
+					
+					System.out.println("CONTEST GOING IN " + cat.getContest());
+					
 					mav.addObject("nextContest", nextContest);
+					mav.addObject("cat", cat);
+
 					System.out.println(nextContest.getContestName() + "CONTEST NAME");
 				}
 				else {

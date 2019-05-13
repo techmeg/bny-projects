@@ -33,9 +33,9 @@ public class Contest {
 	@NotNull(message="Field cannot be empty.")
 	private Date deadline;
 	
-	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "contest", cascade = CascadeType.ALL)
 	private List<Cat> catList;
-	
+
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval=true)
 	private Winner winner;
 	
@@ -51,6 +51,12 @@ public class Contest {
 	}
 
 
+
+	@Override
+	public String toString() {
+		return "Contest [id=" + id + ", contestName=" + contestName + ", contestBlurb=" + contestBlurb + ", status="
+				+ status + ", deadline=" + deadline + ", catList=" + catList + ", winner=" + winner + "]";
+	}
 
 	public Long getId() {
 		return id;
@@ -101,4 +107,12 @@ public class Contest {
 		this.winner = winner;
 	}
 
+	
+	public List<Cat> getCatList() {
+		return catList;
+	}
+
+	public void setCatList(List<Cat> catList) {
+		this.catList = catList;
+	}
 }

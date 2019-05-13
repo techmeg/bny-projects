@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -18,10 +20,9 @@ public class Cat {
 	@NotNull
 	private String cName;
 	
-	@NotNull
-	private Long contestId;
-	
-	
+	@ManyToOne
+	@JoinColumn
+	private Contest contest;
 
 	private int numVotes;
 	
@@ -44,6 +45,12 @@ public class Cat {
 		
 	}
 	
+	
+	@Override
+	public String toString() {
+		return "Cat [id=" + id + ", cName=" + cName + ", contest=" + contest + ", numVotes=" + numVotes + ", photo="
+				+ photo + ", blurb=" + blurb + "]";
+	}
 	public Long getId() {
 		return id;
 	}
@@ -81,10 +88,11 @@ public class Cat {
 	public void setBlurb(String blurb) {
 		this.blurb = blurb;
 	}
-	public Long getContestId() {
-		return contestId;
+	public Contest getContest() {
+		return contest;
 	}
-	public void setContestId(Long contestId) {
-		this.contestId = contestId;
+	public void setContest(Contest contest) {
+		this.contest = contest;
 	}
+	
 }
