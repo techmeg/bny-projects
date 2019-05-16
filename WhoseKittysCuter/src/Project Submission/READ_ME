@@ -1,0 +1,74 @@
+WHOSE KITTY'S CUTER
+
+The aim of this application is to serve as an entertainment for cat lovers to view the cute pictures and choose the 
+one that best represents the contest theme.
+
+Voters enter the site and vote on their favorite cat. Their information would be retained in order to ensure that
+each voter only votes once.
+
+THE IDEAL
+The goal of the application is to have the contest rotate after a certain period to a new contest. Cat owners could
+visit the site, see what the next contest is and join the contest by entering some information and uploading a picture
+for the next contest. When the contest deadline occurs, the site would be populated with the new pictures that owners 
+had uploaded during the previous contest period. A winner would be determined and stored.
+
+WHAT I COULD ACTUALLY DO
+I encountered difficulties retaining the cat info in the database when Cat and Contest entities were joined. I could add
+cats and persist, but updating the contest from next to current would delete all photos and related cat info. I ran out 
+time to solve this issue, so cats are loaded into current contest and populate the page from the cat repository.
+
+ADMIN FUNCTION
+An administrator can (log in) and add new contest information, update or delete existing contest information.
+
+Notes: 
+1)Functionality to update the gallery automatically upon attainment of the deadline is unbuilt and beyond the scope
+of my current ability. 
+2)Although some security code was added to enable login, it is currently not preventing an unlogged-in user from 
+accessing admin pages through the url. As there are no other users that require login, login is actioned by typing 
+"/login" into the url after /CaseStudy.
+
+3)Admin credentials are:
+	 username: admin
+	 password: admin@123
+
+ENTITIES:
+
+Cat: holds pertinent information about the cat -- name (cName), id, decriptive info (blurb), number of votes (numVotes),
+name of uploaded photo file (photo). In the ideal case, would have a many to one relationship with contest, which is 
+currently not implemented.
+
+Contest: holds id, contest name, contest description (contestBlurb), status (current, next, or future), deadline and 
+theoretically ideally would have one to many relationship with cat (not implemented).
+
+Contestant: holds name, email and is one to one joined with Cat.
+
+Voter: holds name and email. 
+
+Winner: holds id (this would be set to contestId in a "pickWinner" method), contestantName (cat owner), catName, and 
+winning photo (all fields assigned in "pickWinner" method). As I have not implemented contest change; I am instead
+keeping track of the current leader in the Index Controller.
+
+User: holds (hard-coded to database) username, password and boolean enabled and has a one to many relationship with 
+Authorities.
+
+Authorities: holds authority (ROLE_ADMIN) and has a many to one relationship with User.
+
+CONTROLLERS
+
+Admin Controller: This is supposed to be protecting my admin pages from intruders, but I did not have time to 
+learn how to implement it.
+
+Cat Controller: not implemented
+
+Contestant Controller: From a previous version that I might return to -- ignore.
+
+Contest Controller: Contains methods for showing all contests, creating, updating, deleting a contest.
+
+Index Controller: Populates the home page with copy and photos as well as leader info.
+
+Upload Controller: Saves cat registration, saves photo in a hidden image folder for later retrieval. Should save
+Contestant (owner) but not currently working.
+
+Voter Controller: Saves voter info, updates vote count.
+
+Winner Contoller: NOT IMPLEMENTED, would pick a winner at the end of contest and save to repo.
