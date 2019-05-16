@@ -3,6 +3,9 @@
 <%@ taglib uri="http://www.springframework.org/security/tags"
 	prefix="security"%>
 <!DOCTYPE html >
+
+<!-- ------Part of Spring Security -- not using as most users do not need to log in -->
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">

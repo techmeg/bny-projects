@@ -5,8 +5,8 @@
   box-sizing: border-box;
   color: gray;
 
-
 }
+/****************** nav bar tweaks ************************/
 .vote {
 	width: 150px;
 	color: white;
@@ -16,7 +16,10 @@
 	text-align: center;
 	border-radius: 5px;
 }
-
+a:hover {
+	color: rgba(255, 255, 255, .75);
+	text-decoration: none;
+}
 /****************** content  ***********************/
 h1 {
     padding: 5px 30px;
@@ -35,7 +38,7 @@ h1 {
     width: 100%;
 }
 
-/************* Dr Is IN form styling************/
+/************* form styling************/
 
 
 .form_container {
@@ -51,7 +54,7 @@ h1 {
 
 .form_container h1{
     color: white;
- /*   font-family: Arial;*/
+
 }
 
 .form {
@@ -121,6 +124,7 @@ textarea {
     font-weight: 700;
     font-size: 15px;
 }
+
 
 #username:not(:placeholder-shown):invalid {
     box-shadow: 1px 1px 10px red;

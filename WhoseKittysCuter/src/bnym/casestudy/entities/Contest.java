@@ -1,18 +1,14 @@
 package bnym.casestudy.entities;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.Valid;
 
 @Entity
 public class Contest {
@@ -21,20 +17,20 @@ public class Contest {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	
-	@NotNull(message="Name field cannot be empty.")
+	@NotEmpty(message="Name field cannot be empty.")
 	private String contestName;
 	
-	@NotNull(message="Field cannot be empty.")
+	@NotEmpty(message="Field cannot be empty.")
 	private String contestBlurb;
 	
-	@NotNull(message="Field cannot be empty.")
+	@NotEmpty(message="Field cannot be empty.")
 	private String status;
 	
-	@NotNull(message="Field cannot be empty.")
+	@NotEmpty(message="Field cannot be empty.")
 	private Date deadline;
 	
-	@OneToMany(mappedBy = "contest", cascade = CascadeType.ALL)
-	private List<Cat> catList;
+//	@OneToMany(fetch=FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval=true)
+//	private Collection <Cat> catList = new LinkedHashSet<>();
 
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval=true)
 	private Winner winner;
@@ -51,11 +47,10 @@ public class Contest {
 	}
 
 
-
 	@Override
 	public String toString() {
 		return "Contest [id=" + id + ", contestName=" + contestName + ", contestBlurb=" + contestBlurb + ", status="
-				+ status + ", deadline=" + deadline + ", catList=" + catList + ", winner=" + winner + "]";
+				+ status + ", deadline=" + deadline + ", winner=" + winner + "]";
 	}
 
 	public Long getId() {
@@ -107,12 +102,15 @@ public class Contest {
 		this.winner = winner;
 	}
 
-	
-	public List<Cat> getCatList() {
-		return catList;
-	}
+//	public Collection<Cat> getCatList() {
+//		return catList;
+//	}
+//
+//	public void setCatList(Collection<Cat> catList) {
+//		this.catList = catList;
+//	}
 
-	public void setCatList(List<Cat> catList) {
-		this.catList = catList;
-	}
+	
+	
 }
+

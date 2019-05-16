@@ -7,11 +7,15 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <!DOCTYPE html>
+
+<!-- -----------------------HOME PAGE-------------------------------------- -->
+
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	
 <title>Whose Kitty's Cuter</title>
 <!-- Bootstrap CSS file -->
 <link rel="stylesheet"
@@ -19,16 +23,22 @@
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 	crossorigin="anonymous">
 
+
+
 <!-- whose kitty styles -->
 
-<link href="./styles/mainkitty.css" rel="stylesheet">
+<link href="./styles/mainkitty.css" rel="stylesheet" type="text/css">
+
+
 </head>
 
 <body>
 	<header>
 
+		<!-- --------------------NAV BAR--------------------- -->
+
 		<nav class="navbar navbar-expand-md navbar-dark bg-dark">
-			<a href="#" class="navbar-brand">Brand</a>
+			<!-- 	<img class="logo" src="./images/saxophone-1287911__340.png"/> -->
 			<button type="button" class="navbar-toggler" data-toggle="collapse"
 				data-target="#navbarCollapse">
 				<span class="navbar-toggler-icon"></span>
@@ -36,133 +46,69 @@
 
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 				<div class="navbar-nav">
-					<a href="/about.jsp" class="nav-item nav-link ">About Contest</a> <a
-						href="/contactus.jsp" class="nav-item nav-link ">Contact Us</a> <a
-						href="#" class="nav-item nav-link ">All Winners</a>
+					<a href="/CaseStudy/about" class="nav-item nav-link ">About
+						Contest</a> <a href="/CaseStudy/contactus" class="nav-item nav-link ">Contact
+						Us</a> <a href="#" class="nav-item nav-link ">All Winners</a>
 
 				</div>
 
 			</div>
 		</nav>
 
+		<!-- ----------------------------INTRO COPY------------------------------- -->
 	</header>
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-8 mt-4 px-4 border-right">
+			<div class="col-md-8 col-sm-6 mt-4 px-4 border-right">
 				<h1>Whose Kitty's Cuter?</h1>
 				<h2 style="color: red;">${noCurrentContest}</h2>
-				<p>You decide. This week's contest? ${currentContest.contestName }
-					${currentContest.contestBlurb }</p>
+				<p class="p1">You decide. This week's contest?
+					${currentContest.contestName } ${currentContest.contestBlurb }</p>
 
-				<!-- show list of cats in gallery -->
-				<div class="row ">
+				<!--------------- Button (to Trigger Modal) FOR REGISTRATION --------------------------->
 
-					<c:forEach items="${catList }" var="cat">
-
-						<div class="col-4  img-group">
-
-							<div class="pix"
-								style="background-color: rosybrown; background-position: center background-repeat: no-repeat; background-size: cover)">
-								<img class="pix" style="object-fit: cover; width: 100%;"
-									src="./images/${currentContest.catList.photo}" />
-							</div>
-							<h5 class="mt-1">${currentContest.catList.cName }</h5>
-							<p class="blurb">${currentContest.catList.blurb }</p>
-							<p class="votes">${currentContest.catList.numVotes}&nbsp;Votes</p>
-							<input type="button" class="pickme" name="pickme"
-								onclick="window.location.href='${pageContext.request.contextPath}/voterRegistration/${cat.id }';"
-								value="Pick Me!"></input>
-						</div>
-					</c:forEach>
+				<a href="#joinContest" class="btn btn-lg btn-info mb-3"
+					data-toggle="modal">Join Contest</a>
 
 
-					<div class="col-4  img-group">
-						<div class="pix" id="img-2"></div>
-						<p class="votes">${numVotes}Votes</p>
-						<button class="pick-me">Pick Me</button>
-					</div>
-					<div class="col-4  img-group">
-						<div class="pix" id="img-3"></div>
-						<p class="votes">${numVotes}Votes</p>
-						<button class="pick-me">Pick Me</button>
-					</div>
-					<div class="col-4 img-group">
-						<div class="pix" id="img-4"></div>
-						<p class="votes">${numVotes}Votes</p>
-						<button class="pick-me">Pick Me</button>
-					</div>
-					<div class="col-4 img-group">
-						<div class="pix" id="img-5"></div>
-						<p class="votes">${numVotes}Votes</p>
-						<button class="pick-me">Pick Me</button>
-					</div>
-					<div class="col-4 img-group">
-						<div class="pix" id="img-6"></div>
-						<p class="votes">${numVotes}Votes</p>
-						<button class="pick-me">Pick Me</button>
-					</div>
-					<div class="col-4  img-group">
-						<div class="pix" id="img-1"></div>
-						<p class="votes">${numVotes}Votes</p>
-						<button class="pick-me">Pick Me</button>
-					</div>
-					<div class="col-4  img-group">
-						<div class="pix" id="img-2"></div>
-						<p class="votes">${numVotes}Votes</p>
-						<button class="pick-me">Pick Me</button>
-					</div>
-				</div>
-			</div>
-			<!-- beginning of sidebar -->
+				<h4 class="leader ml-5">Current Leader: ${leader}&nbsp;, Votes:
+					${mostVotes}</h4>
 
-
-			<div class="col-4 mt-4 px-4">
-				<sidebar id="join-contest">
-				<h2>Next week: ${nextContest.contestName }</h2>
-				<h2 style="color: red;">${noNextContest}</h2>
-				<p>${nextContest.contestBlurb }</p>
-				<p>Join the contest! Post your kitty's picture in the gallery
-					for others to admire. (And by kitty, we mean cats of any age --
-					"kitty" just makes for a more euphonious tag line.)</p>
-
-				<h4>
-					Submission Deadline:
-					<fmt:formatDate value="${nextContest.deadline}"
-						pattern="MM/dd/yyyy" />
-				</h4>
-				<!-- Modal with Form to Register Cat Owner as Voter --> <!-- Button HTML (to Trigger Modal) -->
-				<a href="#joinContest" class="btn btn-lg btn-info"
-					data-toggle="modal">Join Contest</a> <!-- Modal HTML -->
+				<!------------------------ MODAL Form to Register Cat & Owner ------------------>
 				<div id="joinContest" class="modal fade">
-					<div class="modal-dialog">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h5 class="modal-title">Ready to join the Contest?</h5>
-								<button type="button" class="close" data-dismiss="modal">&times;</button>
-							</div>
-							<div class="modal-body">
-								<p>Register your info below to enter. You can only vote once
-									per contest, so, only one cat can enter this time. You can
-									enter your other pet next time.</p>
+					<div class="modal-dialog modal-lg">
+						<div class="modal-content px-3 py-3">
 
-								<!----------- Form to Register  --------->
+
+							<div class="modal-body">
+								<div>
+									<h3 style="float: left;" class="modal-title text-info">Ready
+										to join the Contest?</h3>
+									<button type="button" class="close" data-dismiss="modal">&times;</button>
+									<br>
+								</div>
+								<p style="clear: both;">Register your info below to enter.
+									You can only vote once per contest, so, only one cat can enter
+									this time. You can enter your other pet next time.</p>
+
+								<!----------- Form Start, Owner Info  --------->
 								<form action="/CaseStudy/registrationsuccess" method="POST"
-									enctype="multipart/form-data" modelAttribute="contest">
+									enctype="multipart/form-data">
 									<div class="form-group">
-										<label for="inputName" name="name">Name</label> <input
-											type="text" name="name" class="form-control" id="inputName"
-											placeholder="First Name" />
+										<input type="text" name="name" class="form-control"
+											id="inputName" placeholder="First Name" />
+
 									</div>
 									<div class="form-group">
-										<label for="inputEmail" name="email">Email</label> <input
-											type="email" name="email" class="form-control"
+										<input type="email" name="email" class="form-control"
 											id="inputEmail" placeholder="Email" />
 									</div>
-									<!-- Cat INFO -->
-									<h5>Your Cat's Information</h5>
+
+									<!------------- Cat INFO ---------------------->
+
+									<h5 class="text-info">Your Cat's Information</h5>
 									<div class="form-group">
-										<label for="inputcName" name="cName">Cat Name</label> <input
-											type="text" name="cName" class="form-control"
+										<input type="text" name="cName" class="form-control"
 											placeholder="Cat Name" />
 									</div>
 									<div class="form-group">
@@ -174,27 +120,123 @@
 										<label for="inputcBlurb" name="cBlurb"> Tell us about
 											your cat!</label>
 										<textarea class="form-control" name="cBlurb" rows="3"
-											cols="80" maxlength="150"></textarea>
+											cols="80" maxlength="100"></textarea>
 									</div>
 
-									<button type="submit" class="btn btn-primary">Register</button>
+									<button type="submit" class="btn btn-info">Register</button>
 								</form>
 							</div>
-
-							<div class="modal-footer"></div>
 						</div>
 					</div>
 				</div>
-				<!-- end of Model -->
+				<!-- end of Modal -->
+
+				<!---------------------------- show entered cats in gallery ------------------------------>
+				<div class="row ">
+
+					<c:forEach items="${catList }" var="cat">
+
+						<div class="col-lg-4 col-md-6 col-sm-12  img-group">
+
+							<div class="img-item">
+								<img class="pix" src="./images/${cat.photo}" />
+							</div>
+
+							<h5 class="mt-1">${cat.cName }</h5>
+							<p class="blurb">${cat.blurb }</p>
+
+							<div class="abs">
+								<p class="votes">&nbsp;Votes:&nbsp;${cat.numVotes}</p>
+	<!-- button onclick to vote is HERE -->
+								<input type="button" name="pickme"
+									onclick="window.location.href='${pageContext.request.contextPath}/voterRegistration/${cat.id }';"
+									value="Pick Me!"></input>
+							</div>
+						</div>
+					</c:forEach>
+
+					<!----------------------------- Filler pictures  ---------------------------->
+
+					<div class="col-lg-4 col-md-6 col-sm-12 img-group">
+						<div class="img-item">
+							<img class="pix" src="./images/sleep-zhan-zhang-1402682.jpg" />
+						</div>
+
+						<div class="abs">
+							<p class="votes">${numVotes}Votes</p>
+							<button class="pick-me">Pick Me</button>
+						</div>
+					</div>
+
+					<div class="col-lg-4 col-md-6 col-sm-12 img-group">
+						<div class="img-item">
+							<img class="pix" src='./images/sleep-ioana-tabarcea-1131016.jpg' />
+						</div>
+						<div class="abs">
+							<p class="votes">${numVotes}Votes</p>
+							<button class="pick-me">Pick Me</button>
+						</div>
+					</div>
+
+					<div class="col-lg-4 col-md-6 col-sm-12 img-group">
+						<div class="img-item">
+							<img class="pix" src='./images/sleep-jonathan-fink-294000.jpg' />
+						</div>
+						<div class="abs">
+							<p class="votes">${numVotes}Votes</p>
+							<button class="pick-me">Pick Me</button>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-6 col-sm-12 img-group">
+						<div class="img-item">
+							<img class="pix" src='./images/sleep-joop-vd-schaaf-1337213.jpg' />
+						</div>
+						<div class="abs">
+							<p class="votes">${numVotes}Votes</p>
+							<button class="pick-me">Pick Me</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!---------------------- beginning of side bar,  Next Contest Info ---------------------->
+
+
+			<div class="col-md-4 col-sm-6 mt-4 px-4">
+				<sidebar id="join-contest">
+				<h2>Next week: ${nextContest.contestName }</h2>
+				<h2 style="color: red;">${noNextContest}</h2>
+				<p>${nextContest.contestBlurb }</p>
+				<p>Join the contest! Post your kitty's picture in the gallery
+					for others to admire. (And by kitty, we mean cats of any age --
+					"kitty" just makes for a more euphonious tag line.)</p>
+
+				<h4>
+					Next Contest Starts:
+					<fmt:formatDate value="${nextContest.deadline}"
+						pattern="MM/dd/yyyy" />
+				</h4>
+
+
+
+				<!------------------- pictures of past contest winners ------------------------------->
 
 				<div class="past-winners mt-4">
 					<h3>Past Winners</h3>
 					<p>Here are some very cute kitties from past contests. Enjoy!</p>
-					<div class="winner1 "></div>
-					<p class="caption mb-4">"Curious Kitty" Winner</p>
-					<div class="winner2"></div>
+					<div class="winner ">
+						<img class="winner"
+							src="./images/myrnas-cat.jpg" />
+					</div>
+					<p class="caption mb-4">"Black Beauty" Winner</p>
+					<div class="winner">
+						<img class="winner"
+							src="./images/face-martina-misar-tummeltshammer-103131-unsplash.jpg" />
+					</div>
 					<p class="caption mb-4">"What Big Teeth You Have" Winner</p>
-					<div class="winner3 "></div>
+					<div class="winner">
+						<img class="winner" src="./images/home-cat-leaping.jpg" />
+					</div>
 					<p class="caption mb-4">"Watch Me Jump" Winner
 				</div>
 				</sidebar>
@@ -204,6 +246,8 @@
 	</div>
 
 	<footer>Copyright 2019 Meg Parsons </footer>
+
+	
 
 	<!-- JS files: jQuery first, then Popper.js, then Bootstrap JS -->
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

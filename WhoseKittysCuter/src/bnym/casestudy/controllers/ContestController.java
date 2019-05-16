@@ -1,7 +1,12 @@
 package bnym.casestudy.controllers;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
+/*
+ * 
+ * author margaret parsons
+ * 
+ */
+
 import java.util.Date;
 import java.util.List;
 
@@ -18,17 +23,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import bnym.casestudy.entities.Cat;
 import bnym.casestudy.entities.Contest;
-import bnym.casestudy.entities.Contestant;
-import bnym.casestudy.entities.Winner;
-import bnym.casestudy.services.CatDAO;
 import bnym.casestudy.services.ContestDAO;
-import bnym.casestudy.services.ContestServices;
-import bnym.casestudy.services.ContestantDAO;
 
 @Controller
 public class ContestController {
@@ -56,8 +54,7 @@ public class ContestController {
 	}
 
 	// This controller is linked to button on Contest List (showcontests.jsp) and
-	// allows
-	// admin to create a contest
+	// allows admin to create a contest
 
 	@RequestMapping("/admin/createContest")
 	public ModelAndView createContest(Model contest) {
@@ -131,7 +128,7 @@ public class ContestController {
 		// store winner info in contest
 		// replace pictures with new contest pictures
 		// replace contest blurb with next contest blurb
-		// if time, refresh last three winners sidebar pix (doubtful)
+		// refresh last three winners sidebar pix 
 
 	}
 

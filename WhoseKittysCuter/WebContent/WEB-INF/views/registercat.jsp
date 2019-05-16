@@ -2,7 +2,8 @@
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
-<!DOCTYPE html>
+<!DOCTYPE html> <!-- ----------this page not being used, but saving for later----------- -->
+				<!-- ----------replaced by Modal------------------------------ -->
 <html>
 
 <head>

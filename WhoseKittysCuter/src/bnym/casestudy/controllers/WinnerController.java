@@ -21,7 +21,7 @@ public class WinnerController {
 	// THE METHOD BELOW WOULD BE PART OF AUTOMATIC UPDATE IF I WERE ABLE TO
 		// IMPLEMENT THE AUTOMATIC UPDATING OF THE GALLERY
 
-		public Winner pickWinner(Long contestId) {
+		public Winner pickWinner() {
 			// get list of cat entries
 			List<Cat> catList = catservices.getAllCats();
 			for (Cat c : catList) {
@@ -35,6 +35,7 @@ public class WinnerController {
 				Winner winner = new Winner();
 				winner.setId(cat.getId());
 				winner.setCatName(cat.getcName());
+				
 				
 				//find owner by comparing winner
 				List<Contestant> ownerList = contestantservices.getAllContestants();

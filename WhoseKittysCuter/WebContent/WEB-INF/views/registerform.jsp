@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-
+<!-- -------------THIS PAGE SAVES VOTER INFORMATION -->
 <head>
 <meta charset="utf-8">
 <title>Register</title>
@@ -50,7 +50,7 @@
 
 			<div class="form_container">
 				<h1>Contest Registration</h1>
-				<form class="form" method="post" action="${pageContext.request.contextPath}/voterSuccess" id="form">
+				<form class="form" method="post" action="${pageContext.request.contextPath}/voterSuccess/${cat.id}" id="form">
 					<div class="field_container">
 						<img src="../images/person.png" /> <input type="text"
 							id="firstname" name="name" placeholder="Name"

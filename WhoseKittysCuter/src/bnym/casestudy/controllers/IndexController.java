@@ -14,7 +14,12 @@ import bnym.casestudy.entities.Cat;
 import bnym.casestudy.entities.Contest;
 import bnym.casestudy.services.CatDAO;
 import bnym.casestudy.services.ContestDAO;
-
+/*
+ * 
+ * author: meg parsons
+ * 
+ * 
+ */
 @Controller
 public class IndexController {
 	
@@ -23,55 +28,64 @@ public class IndexController {
 	
 	@Autowired
 	ContestDAO contestservices;
+	
+	//THIS METHOD POPULATES THE HOME PAGE WITH COPY AND PHOTOS AND LEADER INFO
 
-	@RequestMapping("/")
+	@RequestMapping( value= {"/", "/index"})
 	//@RequestMapping("/", "/home", "/index")
 	public ModelAndView getHomePage(Model model) {
 		
 		//get current contest copy and list of cats to populate gallery
 		ModelAndView mav = new ModelAndView("index");
 		List<Contest> contestList = contestservices.getAllContests();
+
 		try {
 			if (contestList.isEmpty()) {
 				mav.addObject("noNextContest", "Next contest theme is not available.");
 				mav.addObject("noCurrentContest", "There is no current contest.");
 				return mav;
 
-			}
-			Contest currentContest = new Contest();
-			for (Contest c : contestList) {
-				if (c.getStatus().equals("current")) {
-					currentContest = c;
-					mav.addObject("currentContest", currentContest);
-//					List <Cat> catList = catservices.getAllCats();
-//					mav.addObject("catList", catList);
+			}else {
+				Contest currentContest = new Contest();
+				Cat catLeader = new Cat();
+				String leader  = "no leader";
+				int mostVotes = 0;
+				
+				//get current contest
+				for (Contest c : contestList) {
+					if (c.getStatus().equals("current")) {
+						currentContest = c;
+						mav.addObject("currentContest", currentContest);
+						List <Cat> catList = catservices.getAllCats();
+						mav.addObject("catList", catList);
+						
+						//get leader
+						for(Cat cat: catList) {
+							if(cat.getNumVotes()>mostVotes) {
+								catLeader = cat;
+								leader = catLeader.getcName();
+								mostVotes = catLeader.getNumVotes();
+								System.out.println("leader " +leader + "votes " + mostVotes);
+								mav.addObject("leader", leader);
+								mav.addObject("mostVotes", mostVotes);
+							}
+						}
+					}
+					else {
+						System.out.println("NO CURRENT CONTEST");
+					}
+				}//determine next contest to populate side bar 
+				Contest nextContest = new Contest();
+				for (Contest c : contestList) {
+					if (c.getStatus().equals("next")) {
+						nextContest = c;
+						mav.addObject("nextContest", nextContest);
+					}
+					else {
+					System.out.println("NO NEXT CONTEST");
+					mav.addObject("nocontest", "Next contest theme is not available.");
+					}
 				}
-				else {
-					System.out.println("NO CURRENT CONTEST");
-				}
-			}
-			
-			//determine next contest to populate side bar 
-
-			Contest nextContest = new Contest();
-			for (Contest c : contestList) {
-				if (c.getStatus().equals("next")) {
-					nextContest = c;
-					Cat cat = new Cat();
-					cat.setContest(nextContest);
-					
-					System.out.println("CONTEST GOING IN " + cat.getContest());
-					
-					mav.addObject("nextContest", nextContest);
-					mav.addObject("cat", cat);
-
-					System.out.println(nextContest.getContestName() + "CONTEST NAME");
-				}
-				else {
-				System.out.println("NO NEXT CONTEST");
-				mav.addObject("nocontest", "Next contest theme is not available.");
-				}
-			
 			}return mav;
 		}catch (NullPointerException e) {
 
@@ -79,9 +93,20 @@ public class IndexController {
 		}return mav;
 		
 	}
+	//This maps to About Contest page
+	@RequestMapping("/about")
+	public ModelAndView getAboutPage(Model model) {
+		return new ModelAndView("about");
 	
+	}
+	//This maps to the Contact Us page
+	@RequestMapping("/contactus")
+	public ModelAndView getContactPage(Model model) {
+		return new ModelAndView("contactus");
 	
-	//security additions
+	}
+	
+	//security additions -- not in use as Admin is the only user
 	@RequestMapping("/userpage")
 	public ModelAndView getUserPage(Model model, Principal principal) {
 		//model.addAttribute("message", "You are logged in as " + principal.getName());
@@ -94,4 +119,6 @@ public class IndexController {
 		//model.addAttribute("message", "You are logged in as " + principal.getName());
 		return new ModelAndView("user");
 	}
+	
+	
 }

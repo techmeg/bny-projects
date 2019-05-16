@@ -1,16 +1,20 @@
 package bnym.casestudy.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 @Entity
 public class Voter {
 	
-	@NotNull
+	@NotEmpty(message="Please add your name")
+	@Column(name="Name")
 	private String name;
 	
 	@Id
+	@Column(name="Email", nullable=false)
 	private String email;
 	
 	public Voter(String name, String email) {
@@ -23,11 +27,8 @@ public class Voter {
 		
 	}
 	private Long contestId;
-	private String photo;
-	
-	
-	
 
+	
 	public String getName() {
 		return name;
 	}
@@ -52,24 +53,5 @@ public class Voter {
 		this.contestId = contestId;
 	}
 
-	public String getPhoto() {
-		return photo;
-	}
-
-	public void setPhoto(String photo) {
-		this.photo = photo;
-	}
-
-
 	
-	
-
-	
-	
-	public void register() {}
-	
-	public void uploadPhoto() {}
-	
-	public void seeWinnerReport() {}
-
 }

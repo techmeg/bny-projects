@@ -1,24 +1,23 @@
 package bnym.casestudy.entities;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 public class Contestant {
 
 	
-	@NotNull
+	@NotEmpty(message="Please add your name")
 	@Column(name = "Owner_Name")
 	private String name;
 	
 	
 	@Id
-	@NotNull
+	@NotEmpty(message="Please add your email, must include @.")
 	@Column(name = "Email")
 	private String email;
 	

@@ -2,7 +2,11 @@ package bnym.casestudy.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-
+/*
+ * 
+ * author: meg parsons
+ * 
+ */
 
 
 @Entity
@@ -22,30 +26,19 @@ public class Winner {
 		
 	}
 
-	
-
 	public String getPhoto() {
 		return photo;
 	}
 
-
-
 	public void setPhoto(String photo) {
 		this.photo = photo;
 	}
-
-
-
-	
-
 
 	@Override
 	public String toString() {
 		return "Winner [id=" + id + ", contestantName=" + contestantName + ", catName=" + catName + ", photo=" + photo
 				+ "]";
 	}
-
-
 
 	public Long getId() {
 		return id;
@@ -54,7 +47,6 @@ public class Winner {
 	public void setId(Long id) {
 		this.id = id;
 	}
-
 
 	public String getContestantName() {
 		return contestantName;

@@ -5,9 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 public class Cat {
@@ -17,21 +15,21 @@ public class Cat {
 	@Column(name="Cat_Id")
 	private Long id;
 	
-	@NotNull
+	@NotEmpty(message="Please add your cat's name")
+	@Column(name="Cat_Name")
 	private String cName;
 	
-	@ManyToOne
-	@JoinColumn
-	private Contest contest;
-
+	@Column(name="Number_Votes")
 	private int numVotes;
 	
 
 
-	@NotNull
+	@NotEmpty(message="Please choose a file")
+	@Column(name="Photo_Link")
 	private String photo;
 	
-	@NotNull
+	
+	@Column(name="Cat_Description")
 	private String blurb;
 
 	public Cat(String cName, int numVotes, String photo, String blurb) {
@@ -46,10 +44,11 @@ public class Cat {
 	}
 	
 	
+	
 	@Override
 	public String toString() {
-		return "Cat [id=" + id + ", cName=" + cName + ", contest=" + contest + ", numVotes=" + numVotes + ", photo="
-				+ photo + ", blurb=" + blurb + "]";
+		return "Cat [id=" + id + ", cName=" + cName + ", numVotes=" + numVotes + ", photo=" + photo + ", blurb=" + blurb
+				+ "]";
 	}
 	public Long getId() {
 		return id;
@@ -88,11 +87,6 @@ public class Cat {
 	public void setBlurb(String blurb) {
 		this.blurb = blurb;
 	}
-	public Contest getContest() {
-		return contest;
-	}
-	public void setContest(Contest contest) {
-		this.contest = contest;
-	}
+	
 	
 }

@@ -16,6 +16,8 @@ import org.springframework.web.servlet.ModelAndView;
 import bnym.casestudy.entities.Contestant;
 import bnym.casestudy.services.ContestantDAO;
 
+//THIS CONTROLLER IS NOT IN USE -- KEEPING FOR FUTURE UPDATE
+
 @Controller
 public class ContestantController {
 
